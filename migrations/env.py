@@ -3,8 +3,8 @@ from logging.config import fileConfig
 from sqlalchemy import pool, engine_from_config
 
 from alembic import context
-from db.session import engine
-from db.base import Base
+from db_connection.session import engine
+from db_connection.base import Base
 import models # Import all models here so Alembic can see them
 
 # this is the Alembic Config object, which provides

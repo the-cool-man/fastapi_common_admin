@@ -5,7 +5,7 @@ from sqlalchemy import (
     Enum,
     TIMESTAMP
 )
-from db.base import Base
+from db_connection.base import Base
 import enum
 
 
