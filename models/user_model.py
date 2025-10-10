@@ -2,6 +2,8 @@ from sqlalchemy import Column, Integer, BigInteger, String, Enum, DateTime, TIME
 from sqlalchemy.sql import func
 from db_connection.base import Base
 import enum
+from datetime import datetime, date
+from decimal import Decimal
 
 
 class UserStatusEnum(str, enum.Enum):
@@ -45,3 +47,21 @@ class AdminUser(Base):
     deleted_at = Column(TIMESTAMP(timezone=True))
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+
+    def as_dict(self, exclude_fields=None):
+        if exclude_fields is None:
+            exclude_fields = ['password', 'c_password']
+
+        result = {}
+        for c in self.__table__.columns:
+            if c.name in exclude_fields:
+                continue
+
+            value = getattr(self, c.name)
+            if isinstance(value, (datetime, date)):
+                result[c.name] = value.isoformat()
+            elif isinstance(value, Decimal):
+                result[c.name] = float(value)
+            else:
+                result[c.name] = value
+        return result

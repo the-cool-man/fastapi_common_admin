@@ -43,7 +43,9 @@ async def login_user(
             content={
                 "status": "success",
                 "message": "Login Successfully!",
-                "jwt": JWToken
+                "userdata": user.as_dict(),
+                "roledata": role_data.as_dict(),
+                "jwt": JWToken,
             },
             status_code=200
         )

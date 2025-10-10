@@ -5,6 +5,9 @@ from sqlalchemy import (
     Enum,
     TIMESTAMP
 )
+from datetime import datetime, date
+from decimal import Decimal
+
 from db_connection.base import Base
 import enum
 
@@ -33,15 +36,30 @@ class AdminRole(Base):
     country = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     state = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     city = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
-    media_gallery = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
+    media_gallery = Column(
+        Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     all_user = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     chat = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     rating = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     site_content = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
-    email_template = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
+    email_template = Column(
+        Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     sms_template = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     rest_api = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     payment_plan = Column(Enum(YesNoEnum), nullable=False, default=YesNoEnum.N)
     created_at = Column(TIMESTAMP(timezone=True))
     updated_at = Column(TIMESTAMP(timezone=True))
     deleted_at = Column(TIMESTAMP(timezone=True))
+
+    def as_dict(self):
+
+        result = {}
+        for c in self.__table__.columns:
+            value = getattr(self, c.name)
+            if isinstance(value, (datetime, date)):
+                result[c.name] = value.isoformat()
+            elif isinstance(value, Decimal):
+                result[c.name] = float(value)
+            else:
+                result[c.name] = value
+        return result
