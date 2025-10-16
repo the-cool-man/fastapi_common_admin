@@ -8,11 +8,17 @@ from passlib.context import CryptContext
 from models import AdminUser as Users
 import hashlib
 import uuid
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
-SECRET_KEY = "alfa@123"
-ALGORITHM = 'HS256'
-oauth2_bearer = OAuth2PasswordBearer(tokenUrl="/login")
+# SECRET_KEY = "alfa@123"
+# ALGORITHM = 'HS256'
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
+
+oauth2_bearer = OAuth2PasswordBearer(tokenUrl="/login", auto_error=False)
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
 
@@ -80,6 +86,7 @@ async def validate_token(token: str = Depends(oauth2_bearer)):
 
     except JWTError as error:
         return JSONResponse(
-            content={"status": "error", "message": str(error)},
+            content={"status": "error",
+                     "message": "Token Is Invalid"},
             status_code=401
         )
