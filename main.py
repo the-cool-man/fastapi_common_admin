@@ -1,9 +1,7 @@
 from typing import Union
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
-import models
-from db_connection.session import engine
-from api.v1.endpoints import admin_role_route, user_route, staff_route, site_setting_route
+from src import engine, admin_role_route, user_route, staff_route, site_setting_route, models
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
@@ -26,26 +24,26 @@ app.add_middleware(
 
 UPLOAD_DIR = Path(__file__).parent / "uploads"
 app.mount("/api/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
-
+print("UPLOAD_DIR", UPLOAD_DIR)
 models.Base.metadata.create_all(bind=engine)
 
 
-@app.get("/debug-files")
-async def debug_files():
-    import os
-    import json
+# @app.get("/debug-files")
+# async def debug_files():
+#     import os
+#     import json
 
-    debug_info = {
-        "current_directory": os.getcwd(),
-        "uploads_exists": os.path.exists("uploads"),
-        "logos_exists": os.path.exists("uploads/logos"),
-        "files_in_logos": []
-    }
+#     debug_info = {
+#         "current_directory": os.getcwd(),
+#         "uploads_exists": os.path.exists("uploads"),
+#         "logos_exists": os.path.exists("uploads/logos"),
+#         "files_in_logos": []
+#     }
 
-    if os.path.exists("uploads/logos"):
-        debug_info["files_in_logos"] = os.listdir("uploads/logos")
+#     if os.path.exists("uploads/logos"):
+#         debug_info["files_in_logos"] = os.listdir("uploads/logos")
 
-    return debug_info
+#     return debug_info
 
 
 # ------------------ CENTRALIZED VALIDATION ---------------------------#
@@ -54,7 +52,6 @@ async def debug_files():
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     errors = exc.errors()
     first_error = errors[0]
-    # print("first_error", first_error)
     loc = first_error.get("loc", ())
     type = first_error.get("type")
     if type == "missing":
@@ -76,7 +73,6 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 async def pydantic_validation_exception_handler(request: Request, exc: ValidationError):
     errors = exc.errors()
     first_error = errors[0]
-    # print("first_error", first_error)
     loc = first_error.get("loc", ())
     type = first_error.get("type")
     if type == "missing":
@@ -100,7 +96,6 @@ async def pydantic_validation_exception_handler(request: Request, exc: Validatio
 
 @app.exception_handler(ValueError)
 async def value_error_handler(request: Request, exc: ValueError):
-    print("ValueError Handler", str(exc))
     return JSONResponse(
         status_code=200,
         content={
