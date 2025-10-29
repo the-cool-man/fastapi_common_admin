@@ -2,6 +2,10 @@ from fastapi import Request, UploadFile
 from starlette.datastructures import UploadFile as StarletteUploadFile
 from typing import Type, TypeVar
 from pydantic import ValidationError
+from sqlalchemy.ext.declarative import declared_attr
+from datetime import datetime, date
+from decimal import Decimal
+from sqlalchemy.ext.declarative import as_declarative, declared_attr
 
 
 T = TypeVar("T")
@@ -47,3 +51,29 @@ class MultiFormatRequest:
             raise ValueError(f"Unsupported content type: {content_type}")
 
         return cls(**data)
+
+
+
+@as_declarative()
+class BaseDic:
+    @declared_attr
+    def __tablename__(cls):
+        return cls.__name__.lower()
+
+    def as_dict(self, exclude_fields=None):
+        if exclude_fields is None:
+            exclude_fields = []
+
+        result = {}
+        for c in self.__table__.columns:
+            if c.name in exclude_fields:
+                continue
+
+            value = getattr(self, c.name)
+            if isinstance(value, (datetime, date)):
+                result[c.name] = value.isoformat()
+            elif isinstance(value, Decimal):
+                result[c.name] = float(value)
+            else:
+                result[c.name] = value
+        return result

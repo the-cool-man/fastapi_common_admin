@@ -5,9 +5,7 @@ from dotenv import load_dotenv
 from sqlalchemy import pool, engine_from_config
 
 from alembic import context
-from db_connection.session import engine
-from db_connection.base import Base
-import models # Import all models here so Alembic can see them
+from src import models, engine, Base # Import all models here so Alembic can see them
 
 # Load environment variables
 load_dotenv()

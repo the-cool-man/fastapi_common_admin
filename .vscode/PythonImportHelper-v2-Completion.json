@@ -64,6 +64,70 @@
         "documentation": {}
     },
     {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Annotated",
         "importPath": "typing",
         "description": "typing",
@@ -141,6 +205,38 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -409,6 +505,22 @@
         "documentation": {}
     },
     {
+        "label": "desc",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "asc",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "fileConfig",
         "importPath": "logging.config",
         "description": "logging.config",
@@ -450,44 +562,174 @@
         "documentation": {}
     },
     {
-        "label": "engine",
-        "importPath": "db_connection.session",
-        "description": "db_connection.session",
+        "label": "models",
+        "importPath": "src",
+        "description": "src",
         "isExtraImport": true,
-        "detail": "db_connection.session",
+        "detail": "src",
         "documentation": {}
     },
     {
         "label": "engine",
-        "importPath": "db_connection.session",
-        "description": "db_connection.session",
+        "importPath": "src",
+        "description": "src",
         "isExtraImport": true,
-        "detail": "db_connection.session",
-        "documentation": {}
-    },
-    {
-        "label": "SessionLocal",
-        "importPath": "db_connection.session",
-        "description": "db_connection.session",
-        "isExtraImport": true,
-        "detail": "db_connection.session",
+        "detail": "src",
         "documentation": {}
     },
     {
         "label": "Base",
-        "importPath": "db_connection.base",
-        "description": "db_connection.base",
+        "importPath": "src",
+        "description": "src",
         "isExtraImport": true,
-        "detail": "db_connection.base",
+        "detail": "src",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "importPath": "src",
+        "description": "src",
+        "isExtraImport": true,
+        "detail": "src",
+        "documentation": {}
+    },
+    {
+        "label": "user_route",
+        "importPath": "src",
+        "description": "src",
+        "isExtraImport": true,
+        "detail": "src",
+        "documentation": {}
+    },
+    {
+        "label": "staff_route",
+        "importPath": "src",
+        "description": "src",
+        "isExtraImport": true,
+        "detail": "src",
+        "documentation": {}
+    },
+    {
+        "label": "site_setting_route",
+        "importPath": "src",
+        "description": "src",
+        "isExtraImport": true,
+        "detail": "src",
         "documentation": {}
     },
     {
         "label": "models",
+        "importPath": "src",
+        "description": "src",
+        "isExtraImport": true,
+        "detail": "src",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "time",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "models",
-        "description": "models",
-        "detail": "models",
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
         "documentation": {}
     },
     {
@@ -531,14 +773,6 @@
         "documentation": {}
     },
     {
-        "label": "APIRouter",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
         "label": "Depends",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -548,6 +782,14 @@
     },
     {
         "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -620,22 +862,6 @@
     },
     {
         "label": "UploadFile",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "UploadFile",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "Form",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -763,6 +989,30 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
+        "isExtraImport": true,
+        "detail": "decimal",
+        "documentation": {}
+    },
+    {
         "label": "Decimal",
         "importPath": "decimal",
         "description": "decimal",
@@ -812,110 +1062,11 @@
         "documentation": {}
     },
     {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
+        "label": "BaseDic",
+        "importPath": "src.utils.request_parser",
+        "description": "src.utils.request_parser",
         "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "JSONResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncSession",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "available_timezones",
-        "importPath": "zoneinfo",
-        "description": "zoneinfo",
-        "isExtraImport": true,
-        "detail": "zoneinfo",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "uuid",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "uuid",
-        "description": "uuid",
-        "detail": "uuid",
+        "detail": "src.utils.request_parser",
         "documentation": {}
     },
     {
@@ -959,30 +1110,6 @@
         "documentation": {}
     },
     {
-        "label": "field_validator",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "model_validator",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "ValidationError",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -992,6 +1119,14 @@
     },
     {
         "label": "field_validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "model_validator",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -1072,59 +1207,51 @@
         "documentation": {}
     },
     {
+        "label": "declared_attr",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "as_declarative",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "declared_attr",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "importPath": "db_connection.session",
+        "description": "db_connection.session",
+        "isExtraImport": true,
+        "detail": "db_connection.session",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "importPath": "db_connection.session",
+        "description": "db_connection.session",
+        "isExtraImport": true,
+        "detail": "db_connection.session",
+        "documentation": {}
+    },
+    {
         "label": "StaticFiles",
         "importPath": "fastapi.staticfiles",
         "description": "fastapi.staticfiles",
         "isExtraImport": true,
         "detail": "fastapi.staticfiles",
-        "documentation": {}
-    },
-    {
-        "label": "engine",
-        "importPath": "src",
-        "description": "src",
-        "isExtraImport": true,
-        "detail": "src",
-        "documentation": {}
-    },
-    {
-        "label": "admin_role_route",
-        "importPath": "src",
-        "description": "src",
-        "isExtraImport": true,
-        "detail": "src",
-        "documentation": {}
-    },
-    {
-        "label": "user_route",
-        "importPath": "src",
-        "description": "src",
-        "isExtraImport": true,
-        "detail": "src",
-        "documentation": {}
-    },
-    {
-        "label": "staff_route",
-        "importPath": "src",
-        "description": "src",
-        "isExtraImport": true,
-        "detail": "src",
-        "documentation": {}
-    },
-    {
-        "label": "site_setting_route",
-        "importPath": "src",
-        "description": "src",
-        "isExtraImport": true,
-        "detail": "src",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "src",
-        "description": "src",
-        "isExtraImport": true,
-        "detail": "src",
         "documentation": {}
     },
     {
@@ -1190,6 +1317,24 @@
     {
         "label": "upgrade",
         "kind": 2,
+        "importPath": "migrations.versions.511647c0e5a4_create_social_newtworking_links",
+        "description": "migrations.versions.511647c0e5a4_create_social_newtworking_links",
+        "peekOfCode": "def upgrade() -> None:\n    \"\"\"Upgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('social_networking_links',\n    sa.Column('id', sa.BigInteger(), autoincrement=True, nullable=False),\n    sa.Column('status', sa.Enum('I', 'A', name='socialmediastatusenum'), nullable=False),\n    sa.Column('social_name', sa.String(length=50), nullable=True),\n    sa.Column('social_link', sa.String(length=200), nullable=True),\n    sa.Column('social_logo', sa.String(length=100), nullable=True),\n    sa.Column('created_at', sa.TIMESTAMP(timezone=True), server_default=sa.text('now()'), nullable=True),",
+        "detail": "migrations.versions.511647c0e5a4_create_social_newtworking_links",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.511647c0e5a4_create_social_newtworking_links",
+        "description": "migrations.versions.511647c0e5a4_create_social_newtworking_links",
+        "peekOfCode": "def downgrade() -> None:\n    \"\"\"Downgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.drop_index(op.f('ix_social_networking_links_id'), table_name='social_networking_links')\n    op.drop_table('social_networking_links')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.511647c0e5a4_create_social_newtworking_links",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
         "importPath": "migrations.versions.79bc78a31b85_seed_admin_role_data",
         "description": "migrations.versions.79bc78a31b85_seed_admin_role_data",
         "peekOfCode": "def upgrade() -> None:\n    connection = op.get_bind()\n    connection.execute(\n        sa.text(\"\"\"\n        INSERT INTO admin_role \n        (id, status, role_name, site_setting, banner, category, currency, tax_data, country, state, city,\n         media_gallery, all_user, chat, rating, site_content, email_template, sms_template, rest_api,\n         payment_plan, created_at, updated_at, deleted_at)\n        VALUES\n        (1, 'A', 'Super Admin', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '2023-10-16 05:52:38', NULL, NULL),",
@@ -1203,6 +1348,60 @@
         "description": "migrations.versions.79bc78a31b85_seed_admin_role_data",
         "peekOfCode": "def downgrade() -> None:\n    connection = op.get_bind()\n    connection.execute(sa.text(\"DELETE FROM admin_role\"))",
         "detail": "migrations.versions.79bc78a31b85_seed_admin_role_data",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.93891ab481be_create_admin_role_table",
+        "description": "migrations.versions.93891ab481be_create_admin_role_table",
+        "peekOfCode": "def upgrade() -> None:\n    \"\"\"Upgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    \"\"\"Downgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.93891ab481be_create_admin_role_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.93891ab481be_create_admin_role_table",
+        "description": "migrations.versions.93891ab481be_create_admin_role_table",
+        "peekOfCode": "def downgrade() -> None:\n    \"\"\"Downgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.93891ab481be_create_admin_role_table",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.9df2525fe0ce_create_public_page_seo",
+        "description": "migrations.versions.9df2525fe0ce_create_public_page_seo",
+        "peekOfCode": "def upgrade() -> None:\n    \"\"\"Upgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    \"\"\"Downgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.9df2525fe0ce_create_public_page_seo",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.9df2525fe0ce_create_public_page_seo",
+        "description": "migrations.versions.9df2525fe0ce_create_public_page_seo",
+        "peekOfCode": "def downgrade() -> None:\n    \"\"\"Downgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.9df2525fe0ce_create_public_page_seo",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.f8536a1b057a_create_social_newtworking_links",
+        "description": "migrations.versions.f8536a1b057a_create_social_newtworking_links",
+        "peekOfCode": "def upgrade() -> None:\n    \"\"\"Upgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###\ndef downgrade() -> None:\n    \"\"\"Downgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.f8536a1b057a_create_social_newtworking_links",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.f8536a1b057a_create_social_newtworking_links",
+        "description": "migrations.versions.f8536a1b057a_create_social_newtworking_links",
+        "peekOfCode": "def downgrade() -> None:\n    \"\"\"Downgrade schema.\"\"\"\n    # ### commands auto generated by Alembic - please adjust! ###\n    pass\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.f8536a1b057a_create_social_newtworking_links",
         "documentation": {}
     },
     {
@@ -1266,6 +1465,51 @@
         "description": "migrations.env",
         "peekOfCode": "target_metadata = Base.metadata\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef run_migrations_offline() -> None:\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation",
         "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_DIR",
+        "kind": 5,
+        "importPath": "src.controllers.site_setting_controller",
+        "description": "src.controllers.site_setting_controller",
+        "peekOfCode": "UPLOAD_DIR = \"uploads\"\nLOGO_DIR = os.path.join(UPLOAD_DIR, \"logos\")\nFAVICON_DIR = os.path.join(UPLOAD_DIR, \"favicons\")\nSOCIAL_LOGO_DIR = os.path.join(UPLOAD_DIR, \"social\")\nPAGE_SEO_DIR = os.path.join(UPLOAD_DIR, \"seoImage\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None",
+        "detail": "src.controllers.site_setting_controller",
+        "documentation": {}
+    },
+    {
+        "label": "LOGO_DIR",
+        "kind": 5,
+        "importPath": "src.controllers.site_setting_controller",
+        "description": "src.controllers.site_setting_controller",
+        "peekOfCode": "LOGO_DIR = os.path.join(UPLOAD_DIR, \"logos\")\nFAVICON_DIR = os.path.join(UPLOAD_DIR, \"favicons\")\nSOCIAL_LOGO_DIR = os.path.join(UPLOAD_DIR, \"social\")\nPAGE_SEO_DIR = os.path.join(UPLOAD_DIR, \"seoImage\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    try:",
+        "detail": "src.controllers.site_setting_controller",
+        "documentation": {}
+    },
+    {
+        "label": "FAVICON_DIR",
+        "kind": 5,
+        "importPath": "src.controllers.site_setting_controller",
+        "description": "src.controllers.site_setting_controller",
+        "peekOfCode": "FAVICON_DIR = os.path.join(UPLOAD_DIR, \"favicons\")\nSOCIAL_LOGO_DIR = os.path.join(UPLOAD_DIR, \"social\")\nPAGE_SEO_DIR = os.path.join(UPLOAD_DIR, \"seoImage\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    try:\n        if getattr(request_data, \"id\", None):",
+        "detail": "src.controllers.site_setting_controller",
+        "documentation": {}
+    },
+    {
+        "label": "SOCIAL_LOGO_DIR",
+        "kind": 5,
+        "importPath": "src.controllers.site_setting_controller",
+        "description": "src.controllers.site_setting_controller",
+        "peekOfCode": "SOCIAL_LOGO_DIR = os.path.join(UPLOAD_DIR, \"social\")\nPAGE_SEO_DIR = os.path.join(UPLOAD_DIR, \"seoImage\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    try:\n        if getattr(request_data, \"id\", None):\n            site_config = db.query(SiteConfig).filter(",
+        "detail": "src.controllers.site_setting_controller",
+        "documentation": {}
+    },
+    {
+        "label": "PAGE_SEO_DIR",
+        "kind": 5,
+        "importPath": "src.controllers.site_setting_controller",
+        "description": "src.controllers.site_setting_controller",
+        "peekOfCode": "PAGE_SEO_DIR = os.path.join(UPLOAD_DIR, \"seoImage\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    try:\n        if getattr(request_data, \"id\", None):\n            site_config = db.query(SiteConfig).filter(\n                SiteConfig.id == request_data.id).first()",
+        "detail": "src.controllers.site_setting_controller",
         "documentation": {}
     },
     {
@@ -1354,7 +1598,16 @@
         "kind": 6,
         "importPath": "src.models.site_config_model",
         "description": "src.models.site_config_model",
-        "peekOfCode": "class ConfigStatusEnum(str, enum.Enum):\n    INACTIVE = \"I\"\n    ACTIVE = \"A\"\nclass SiteConfig(Base):\n    __tablename__ = \"site_config\"\n    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)\n    status = Column(\n        Enum(ConfigStatusEnum, values_callable=lambda enum_cls: [\n             e.value for e in enum_cls]),\n        nullable=False,",
+        "peekOfCode": "class ConfigStatusEnum(str, enum.Enum):\n    INACTIVE = \"I\"\n    ACTIVE = \"A\"\nclass SocialMediaStatusEnum(str, enum.Enum):\n    INACTIVE = \"I\"\n    ACTIVE = \"A\"\nclass SiteConfig(Base):\n    __tablename__ = \"site_config\"\n    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)\n    status = Column(",
+        "detail": "src.models.site_config_model",
+        "documentation": {}
+    },
+    {
+        "label": "SocialMediaStatusEnum",
+        "kind": 6,
+        "importPath": "src.models.site_config_model",
+        "description": "src.models.site_config_model",
+        "peekOfCode": "class SocialMediaStatusEnum(str, enum.Enum):\n    INACTIVE = \"I\"\n    ACTIVE = \"A\"\nclass SiteConfig(Base):\n    __tablename__ = \"site_config\"\n    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)\n    status = Column(\n        Enum(ConfigStatusEnum, values_callable=lambda enum_cls: [\n             e.value for e in enum_cls]),\n        nullable=False,",
         "detail": "src.models.site_config_model",
         "documentation": {}
     },
@@ -1364,6 +1617,24 @@
         "importPath": "src.models.site_config_model",
         "description": "src.models.site_config_model",
         "peekOfCode": "class SiteConfig(Base):\n    __tablename__ = \"site_config\"\n    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)\n    status = Column(\n        Enum(ConfigStatusEnum, values_callable=lambda enum_cls: [\n             e.value for e in enum_cls]),\n        nullable=False,\n        default=ConfigStatusEnum.INACTIVE\n    )\n    web_name = Column(String(200))",
+        "detail": "src.models.site_config_model",
+        "documentation": {}
+    },
+    {
+        "label": "SocialMedia",
+        "kind": 6,
+        "importPath": "src.models.site_config_model",
+        "description": "src.models.site_config_model",
+        "peekOfCode": "class SocialMedia(Base, BaseDic):\n    __tablename__ = \"social_networking_links\"\n    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)\n    status = Column(\n        Enum(SocialMediaStatusEnum, values_callable=lambda enum_cls: [\n             e.value for e in enum_cls]),\n        nullable=False,\n        default=SocialMediaStatusEnum.INACTIVE\n    )\n    social_name = Column(String(50))",
+        "detail": "src.models.site_config_model",
+        "documentation": {}
+    },
+    {
+        "label": "PublicPageSEO",
+        "kind": 6,
+        "importPath": "src.models.site_config_model",
+        "description": "src.models.site_config_model",
+        "peekOfCode": "class PublicPageSEO(Base, BaseDic):\n    __tablename__ = \"public_pages_seo\"\n    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)\n    status = Column(\n        Enum(SocialMediaStatusEnum, values_callable=lambda enum_cls: [\n             e.value for e in enum_cls]),\n        nullable=False,\n        default=SocialMediaStatusEnum.INACTIVE\n    )\n    page_name = Column(String(50))",
         "detail": "src.models.site_config_model",
         "documentation": {}
     },
@@ -1395,20 +1666,65 @@
         "documentation": {}
     },
     {
-        "label": "router",
-        "kind": 5,
-        "importPath": "src.routes.admin_role_route",
-        "description": "src.routes.admin_role_route",
-        "peekOfCode": "router = APIRouter()\n# @router.get(\"/\")\n# def get_role():\n#     return JSONResponse(content={\"status\": \"success\", \"message\": \"Successfully Get the user Data!\"}, status_code=200)",
-        "detail": "src.routes.admin_role_route",
-        "documentation": {}
-    },
-    {
         "label": "getTimeZoneData",
         "kind": 2,
         "importPath": "src.routes.site_setting_route",
         "description": "src.routes.site_setting_route",
-        "peekOfCode": "def getTimeZoneData():\n    print(TIME_ZONE)\n    with open(TIME_ZONE, \"r\", encoding=\"utf-8\") as file:\n        data = json.load(file)  # <- remove 'await'\n    return data\n@router.post(\"/basic-site-setting\")\nasync def basic_site_setting(\n    logo_fav_data: Annotated[LogoFavSchema, Depends(LogoFavSchema.from_request)],\n    common_setting: Annotated[CommonSetting, Depends(CommonSetting.from_request)],\n    email_update: Annotated[EmailUpdate, Depends(EmailUpdate.from_request)],",
+        "peekOfCode": "def getTimeZoneData():\n    with open(TIME_ZONE, \"r\", encoding=\"utf-8\") as file:\n        data = json.load(file)  # <- remove 'await'\n    return data\n@router.post(\"/basic-site-setting\")\nasync def basic_site_setting(\n    logo_fav_data: Annotated[LogoFavSchema, Depends(LogoFavSchema.from_request)],\n    common_setting: Annotated[CommonSetting, Depends(CommonSetting.from_request)],\n    email_update: Annotated[EmailUpdate, Depends(EmailUpdate.from_request)],\n    db: DBSession,",
+        "detail": "src.routes.site_setting_route",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_site_setting_data",
+        "kind": 2,
+        "importPath": "src.routes.site_setting_route",
+        "description": "src.routes.site_setting_route",
+        "peekOfCode": "def get_all_site_setting_data(request: Request, db: DBSession, valid_token=Depends(validate_token)):\n    if isinstance(valid_token, JSONResponse):\n        return valid_token\n    base_url = f\"{request.url.scheme}://{request.url.hostname}:{request.url.port}/api/uploads\"\n    try:\n        # synchronous query\n        result = db.query(SiteConfig).filter(SiteConfig.status == \"A\").first()\n        if not result:\n            return JSONResponse(\n                content={\"status\": \"error\",",
+        "detail": "src.routes.site_setting_route",
+        "documentation": {}
+    },
+    {
+        "label": "get_social_media_data",
+        "kind": 2,
+        "importPath": "src.routes.site_setting_route",
+        "description": "src.routes.site_setting_route",
+        "peekOfCode": "def get_social_media_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    # STATUS UPDATE -------------------------\n    if request_data.status_update in [\"A\", \"I\", \"DELETE\"] and len(request_data.checkbox_val) > 0:\n        return status_update(request_data, db, Social)\n    # SORTING, SEARCHING AND PAGINATION -------------------------\n    query = db.query(Social)\n    response_data = sort_search_paginate_data(\n        request_data, db, Social, query, page)",
+        "detail": "src.routes.site_setting_route",
+        "documentation": {}
+    },
+    {
+        "label": "add_social_media",
+        "kind": 2,
+        "importPath": "src.routes.site_setting_route",
+        "description": "src.routes.site_setting_route",
+        "peekOfCode": "def add_social_media(\n    request_data: Annotated[SocialMediaSchema, Depends(SocialMediaSchema.from_request)],\n    db: DBSession,\n    valid_token=Depends(validate_token)\n):\n    if (res := check_token_response(valid_token)):\n        return res\n    return handleSocialMedia(request_data, db)\n@router.get(\"/social-media/edit/{edit_id}\")\ndef social_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):",
+        "detail": "src.routes.site_setting_route",
+        "documentation": {}
+    },
+    {
+        "label": "social_edit_data",
+        "kind": 2,
+        "importPath": "src.routes.site_setting_route",
+        "description": "src.routes.site_setting_route",
+        "peekOfCode": "def social_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    edit_social_data = edit_data(db, Social, edit_id)\n    if edit_social_data is None:\n        return JSONResponse(\n            content={\"status\": \"error\", \"message\": \"Record not found!\"},\n            status_code=200\n        )\n    return JSONResponse(",
+        "detail": "src.routes.site_setting_route",
+        "documentation": {}
+    },
+    {
+        "label": "get_page_seo_data",
+        "kind": 2,
+        "importPath": "src.routes.site_setting_route",
+        "description": "src.routes.site_setting_route",
+        "peekOfCode": "def get_page_seo_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    # STATUS UPDATE -------------------------\n    if request_data.status_update in [\"A\", \"I\", \"DELETE\"] and len(request_data.checkbox_val) > 0:\n        return status_update(request_data, db, PageSEO)\n    # SORTING, SEARCHING AND PAGINATION -------------------------\n    query = db.query(PageSEO)\n    response_data = sort_search_paginate_data(\n        request_data, db, PageSEO, query, page)",
+        "detail": "src.routes.site_setting_route",
+        "documentation": {}
+    },
+    {
+        "label": "page_seo_edit_data",
+        "kind": 2,
+        "importPath": "src.routes.site_setting_route",
+        "description": "src.routes.site_setting_route",
+        "peekOfCode": "def page_seo_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    edit_social_data = edit_data(db, PageSEO, edit_id)\n    if edit_social_data is None:\n        return JSONResponse(\n            content={\"status\": \"error\", \"message\": \"Record not found!\"},\n            status_code=200\n        )\n    return JSONResponse(",
         "detail": "src.routes.site_setting_route",
         "documentation": {}
     },
@@ -1417,34 +1733,16 @@
         "kind": 5,
         "importPath": "src.routes.site_setting_route",
         "description": "src.routes.site_setting_route",
-        "peekOfCode": "router = APIRouter()\nUPLOAD_DIR = \"uploads\"\nLOGO_DIR = os.path.join(UPLOAD_DIR, \"logos\")\nFAVICON_DIR = os.path.join(UPLOAD_DIR, \"favicons\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    print(\"request_data.logo\", request_data.logo)",
+        "peekOfCode": "router = APIRouter()\nSOCIAL_LOGO_DIR = os.path.join(\"uploads\", \"social\")\nTIME_ZONE = Path(__file__).parent.parent / \"utils\" / \"timezone.json\"\ndef getTimeZoneData():\n    with open(TIME_ZONE, \"r\", encoding=\"utf-8\") as file:\n        data = json.load(file)  # <- remove 'await'\n    return data\n@router.post(\"/basic-site-setting\")\nasync def basic_site_setting(\n    logo_fav_data: Annotated[LogoFavSchema, Depends(LogoFavSchema.from_request)],",
         "detail": "src.routes.site_setting_route",
         "documentation": {}
     },
     {
-        "label": "UPLOAD_DIR",
+        "label": "SOCIAL_LOGO_DIR",
         "kind": 5,
         "importPath": "src.routes.site_setting_route",
         "description": "src.routes.site_setting_route",
-        "peekOfCode": "UPLOAD_DIR = \"uploads\"\nLOGO_DIR = os.path.join(UPLOAD_DIR, \"logos\")\nFAVICON_DIR = os.path.join(UPLOAD_DIR, \"favicons\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    print(\"request_data.logo\", request_data.logo)\n    try:",
-        "detail": "src.routes.site_setting_route",
-        "documentation": {}
-    },
-    {
-        "label": "LOGO_DIR",
-        "kind": 5,
-        "importPath": "src.routes.site_setting_route",
-        "description": "src.routes.site_setting_route",
-        "peekOfCode": "LOGO_DIR = os.path.join(UPLOAD_DIR, \"logos\")\nFAVICON_DIR = os.path.join(UPLOAD_DIR, \"favicons\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    print(\"request_data.logo\", request_data.logo)\n    try:\n        if getattr(request_data, \"id\", None):",
-        "detail": "src.routes.site_setting_route",
-        "documentation": {}
-    },
-    {
-        "label": "FAVICON_DIR",
-        "kind": 5,
-        "importPath": "src.routes.site_setting_route",
-        "description": "src.routes.site_setting_route",
-        "peekOfCode": "FAVICON_DIR = os.path.join(UPLOAD_DIR, \"favicons\")\nasync def handleLogoFavicon(request_data, db):\n    logo_filename = None\n    favicon_filename = None\n    logo_path = None\n    favicon_path = None\n    print(\"request_data.logo\", request_data.logo)\n    try:\n        if getattr(request_data, \"id\", None):\n            site_config = db.query(SiteConfig).filter(",
+        "peekOfCode": "SOCIAL_LOGO_DIR = os.path.join(\"uploads\", \"social\")\nTIME_ZONE = Path(__file__).parent.parent / \"utils\" / \"timezone.json\"\ndef getTimeZoneData():\n    with open(TIME_ZONE, \"r\", encoding=\"utf-8\") as file:\n        data = json.load(file)  # <- remove 'await'\n    return data\n@router.post(\"/basic-site-setting\")\nasync def basic_site_setting(\n    logo_fav_data: Annotated[LogoFavSchema, Depends(LogoFavSchema.from_request)],\n    common_setting: Annotated[CommonSetting, Depends(CommonSetting.from_request)],",
         "detail": "src.routes.site_setting_route",
         "documentation": {}
     },
@@ -1453,7 +1751,7 @@
         "kind": 5,
         "importPath": "src.routes.site_setting_route",
         "description": "src.routes.site_setting_route",
-        "peekOfCode": "TIME_ZONE = Path(__file__).parent.parent / \"utils\" / \"timezone.json\"\ndef getTimeZoneData():\n    print(TIME_ZONE)\n    with open(TIME_ZONE, \"r\", encoding=\"utf-8\") as file:\n        data = json.load(file)  # <- remove 'await'\n    return data\n@router.post(\"/basic-site-setting\")\nasync def basic_site_setting(\n    logo_fav_data: Annotated[LogoFavSchema, Depends(LogoFavSchema.from_request)],\n    common_setting: Annotated[CommonSetting, Depends(CommonSetting.from_request)],",
+        "peekOfCode": "TIME_ZONE = Path(__file__).parent.parent / \"utils\" / \"timezone.json\"\ndef getTimeZoneData():\n    with open(TIME_ZONE, \"r\", encoding=\"utf-8\") as file:\n        data = json.load(file)  # <- remove 'await'\n    return data\n@router.post(\"/basic-site-setting\")\nasync def basic_site_setting(\n    logo_fav_data: Annotated[LogoFavSchema, Depends(LogoFavSchema.from_request)],\n    common_setting: Annotated[CommonSetting, Depends(CommonSetting.from_request)],\n    email_update: Annotated[EmailUpdate, Depends(EmailUpdate.from_request)],",
         "detail": "src.routes.site_setting_route",
         "documentation": {}
     },
@@ -1462,7 +1760,7 @@
         "kind": 2,
         "importPath": "src.routes.staff_route",
         "description": "src.routes.staff_route",
-        "peekOfCode": "def staff_save(\n    request_data: Annotated[StaffAddSchema, Depends(StaffAddSchema.from_request)],\n    db: DBSession,\n    valid_user=Depends(validate_token)\n):\n    if isinstance(valid_user, JSONResponse):\n        return valid_user\n    if request_data.id is None:\n        is_exist = db.query(Users).filter(\n            Users.email == request_data.email).first()",
+        "peekOfCode": "def staff_save(\n    request_data: Annotated[StaffAddSchema, Depends(StaffAddSchema.from_request)],\n    db: DBSession,\n    valid_token=Depends(validate_token)\n):\n    if (res := check_token_response(valid_token)):\n        return res\n    if request_data.id is None:\n        if db.query(Users).filter(\n                Users.email == request_data.email).first():",
         "detail": "src.routes.staff_route",
         "documentation": {}
     },
@@ -1471,7 +1769,7 @@
         "kind": 2,
         "importPath": "src.routes.staff_route",
         "description": "src.routes.staff_route",
-        "peekOfCode": "def staff_member_list(request_data: Annotated[StaffListSchema, Depends(StaffListSchema.from_request)], db: DBSession, page: int = Query(1, ge=1), valid_user=Depends(validate_token)):\n    if isinstance(valid_user, JSONResponse):\n        return valid_user\n    if request_data.status_update in ['A', 'I', 'DELETE'] and len(request_data.checkbox_val) > 0:\n        try:\n            query = db.query(Users).filter(\n                Users.user_type != \"S\",\n                Users.id.in_(request_data.checkbox_val)\n            )\n            if request_data.status_update == \"DELETE\":",
+        "peekOfCode": "def staff_member_list(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, ge=1), valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    # STATUS UPDATE -------------------------\n    if request_data.status_update in ['A', 'I', 'DELETE'] and len(request_data.checkbox_val) > 0:\n        return status_update(request_data, db, Users)\n    # SORTING, SEARCHING AND PAGINATION -------------------------\n    query = db.query(Users).filter(Users.user_type != \"S\")\n    # query = db.query(Users).filter()\n    response_data = sort_search_paginate_data(",
         "detail": "src.routes.staff_route",
         "documentation": {}
     },
@@ -1480,7 +1778,34 @@
         "kind": 2,
         "importPath": "src.routes.staff_route",
         "description": "src.routes.staff_route",
-        "peekOfCode": "def staff_member_edit(edit_id: int, db: DBSession, valid_user=Depends(validate_token)):\n    if isinstance(valid_user, JSONResponse):\n        return valid_user\n    edit_user = db.query(Users).filter(Users.id == edit_id).first()\n    if edit_user is None:\n        return JSONResponse(\n            content={\"status\": \"error\", \"message\": \"User not found!\"},\n            status_code=200\n        )\n    return JSONResponse(",
+        "peekOfCode": "def staff_member_edit(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    edit_user = edit_data(db, Users, edit_id)\n    if edit_user is None:\n        return JSONResponse(\n            content={\"status\": \"error\", \"message\": \"User not found!\"},\n            status_code=200\n        )\n    return JSONResponse(",
+        "detail": "src.routes.staff_route",
+        "documentation": {}
+    },
+    {
+        "label": "staff_role_save",
+        "kind": 2,
+        "importPath": "src.routes.staff_route",
+        "description": "src.routes.staff_route",
+        "peekOfCode": "def staff_role_save(\n    request_data: Annotated[StaffRoleSchema, Depends(StaffRoleSchema.from_request)],\n    db: DBSession,\n    valid_token=Depends(validate_token)\n):\n    if res := check_token_response(valid_token):\n        return res\n    query = db.query(Role)\n    try:\n        check_status = [",
+        "detail": "src.routes.staff_route",
+        "documentation": {}
+    },
+    {
+        "label": "staff_role_list",
+        "kind": 2,
+        "importPath": "src.routes.staff_route",
+        "description": "src.routes.staff_route",
+        "peekOfCode": "def staff_role_list(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, ge=1), valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    # STATUS UPDATE -------------------------\n    if request_data.status_update in ['A', 'I', 'DELETE'] and len(request_data.checkbox_val) > 0:\n        return status_update(request_data, db, Role)\n    # SORTING, SEARCHING AND PAGINATION -------------------------\n    query = db.query(Role).filter()\n    response_data = sort_search_paginate_data(\n        request_data, db, Role, query, page)",
+        "detail": "src.routes.staff_route",
+        "documentation": {}
+    },
+    {
+        "label": "staff_role_edit",
+        "kind": 2,
+        "importPath": "src.routes.staff_route",
+        "description": "src.routes.staff_route",
+        "peekOfCode": "def staff_role_edit(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):\n    if (res := check_token_response(valid_token)):\n        return res\n    edit_user = edit_data(db, Role, edit_id)\n    if edit_user is None:\n        return JSONResponse(\n            content={\"status\": \"error\", \"message\": \"User not found!\"},\n            status_code=200\n        )\n    return JSONResponse(",
         "detail": "src.routes.staff_route",
         "documentation": {}
     },
@@ -1489,7 +1814,7 @@
         "kind": 5,
         "importPath": "src.routes.staff_route",
         "description": "src.routes.staff_route",
-        "peekOfCode": "router = APIRouter()\n@router.post(\"/staff-save\")\ndef staff_save(\n    request_data: Annotated[StaffAddSchema, Depends(StaffAddSchema.from_request)],\n    db: DBSession,\n    valid_user=Depends(validate_token)\n):\n    if isinstance(valid_user, JSONResponse):\n        return valid_user\n    if request_data.id is None:",
+        "peekOfCode": "router = APIRouter()\n@router.post(\"/staff-save\")\ndef staff_save(\n    request_data: Annotated[StaffAddSchema, Depends(StaffAddSchema.from_request)],\n    db: DBSession,\n    valid_token=Depends(validate_token)\n):\n    if (res := check_token_response(valid_token)):\n        return res\n    if request_data.id is None:",
         "detail": "src.routes.staff_route",
         "documentation": {}
     },
@@ -1521,6 +1846,15 @@
         "documentation": {}
     },
     {
+        "label": "ListDataSchema",
+        "kind": 6,
+        "importPath": "src.schemas.common_schema",
+        "description": "src.schemas.common_schema",
+        "peekOfCode": "class ListDataSchema(BaseModel, MultiFormatRequest):\n    sort_order: Optional[str] = \"DESC\"\n    sort_column: Optional[str] = \"id\"\n    search_field: Optional[str] = None\n    limit_per_page: Optional[int] = 10\n    page: Optional[int] = 1\n    status_update: Optional[str] = \"A\"\n    checkbox_val: Optional[list] = []",
+        "detail": "src.schemas.common_schema",
+        "documentation": {}
+    },
+    {
         "label": "LogoFavSchema",
         "kind": 6,
         "importPath": "src.schemas.site_setting_schema",
@@ -1543,7 +1877,43 @@
         "kind": 6,
         "importPath": "src.schemas.site_setting_schema",
         "description": "src.schemas.site_setting_schema",
-        "peekOfCode": "class EmailUpdate(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    flag: Optional[str] = None\n    contact_email: Optional[str] = None\n    from_email: Optional[str] = None",
+        "peekOfCode": "class EmailUpdate(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    flag: Optional[str] = None\n    contact_email: Optional[str] = None\n    from_email: Optional[str] = None\nclass SocialMediaSchema(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    social_name: str\n    social_link: str\n    social_logo: UploadFile",
+        "detail": "src.schemas.site_setting_schema",
+        "documentation": {}
+    },
+    {
+        "label": "SocialMediaSchema",
+        "kind": 6,
+        "importPath": "src.schemas.site_setting_schema",
+        "description": "src.schemas.site_setting_schema",
+        "peekOfCode": "class SocialMediaSchema(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    social_name: str\n    social_link: str\n    social_logo: UploadFile\n    status: str\n    @field_validator(\"social_link\")\n    def social_link_validate(cls, v):\n        if not v.startswith((\"http://\", \"https://\")):\n            raise ValueError(\"social_link must be valid URL\")",
+        "detail": "src.schemas.site_setting_schema",
+        "documentation": {}
+    },
+    {
+        "label": "StaffAddSchema",
+        "kind": 6,
+        "importPath": "src.schemas.site_setting_schema",
+        "description": "src.schemas.site_setting_schema",
+        "peekOfCode": "class StaffAddSchema(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    username: str\n    email: str\n    password: str\n    user_type: str\n    role: str\n    status: str\n    @field_validator(\"email\")\n    def email_validation(cls, v):",
+        "detail": "src.schemas.site_setting_schema",
+        "documentation": {}
+    },
+    {
+        "label": "StaffRoleSchema",
+        "kind": 6,
+        "importPath": "src.schemas.site_setting_schema",
+        "description": "src.schemas.site_setting_schema",
+        "peekOfCode": "class StaffRoleSchema(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    status: str\n    role_name: str\n    site_setting: str\n    banner: str\n    category: str\n    currency: str\n    tax_data: str\n    country: str",
+        "detail": "src.schemas.site_setting_schema",
+        "documentation": {}
+    },
+    {
+        "label": "PublicPageSEOSchema",
+        "kind": 6,
+        "importPath": "src.schemas.site_setting_schema",
+        "description": "src.schemas.site_setting_schema",
+        "peekOfCode": "class PublicPageSEOSchema(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    page_name: str\n    meta_title: str\n    meta_description: str\n    meta_image: UploadFile\n    status: str\n    @field_validator(\"meta_image\")\n    def validate_images(cls, file: UploadFile):\n        if not file:",
         "detail": "src.schemas.site_setting_schema",
         "documentation": {}
     },
@@ -1566,21 +1936,39 @@
         "documentation": {}
     },
     {
-        "label": "StaffAddSchema",
-        "kind": 6,
-        "importPath": "src.schemas.staff_schemas",
-        "description": "src.schemas.staff_schemas",
-        "peekOfCode": "class StaffAddSchema(BaseModel, MultiFormatRequest):\n    id: Optional[int] = None\n    username: str\n    email: str\n    password: str\n    user_type: str\n    role: str\n    status: str\n    @field_validator(\"email\")\n    def email_validation(cls, v):",
-        "detail": "src.schemas.staff_schemas",
+        "label": "check_token_response",
+        "kind": 2,
+        "importPath": "src.utils.helper",
+        "description": "src.utils.helper",
+        "peekOfCode": "def check_token_response(valid_token):\n    if isinstance(valid_token, JSONResponse):\n        return valid_token\n    return None\ndef status_update(request_data, db, Model):\n    try:\n        query = db.query(Model).filter(\n            Model.id.in_(request_data.checkbox_val))\n        if request_data.status_update == \"DELETE\":\n            rows_deleted = query.delete(synchronize_session=False)",
+        "detail": "src.utils.helper",
         "documentation": {}
     },
     {
-        "label": "StaffListSchema",
-        "kind": 6,
-        "importPath": "src.schemas.staff_schemas",
-        "description": "src.schemas.staff_schemas",
-        "peekOfCode": "class StaffListSchema(BaseModel, MultiFormatRequest):\n    sort_order: Optional[str] = \"DESC\"\n    sort_column: Optional[str] = \"id\"\n    search_field: Optional[str] = None\n    limit_per_page: Optional[int] = 10\n    page: Optional[int] = 1\n    status_update: Optional[str] = \"A\"\n    checkbox_val: Optional[list] = []",
-        "detail": "src.schemas.staff_schemas",
+        "label": "status_update",
+        "kind": 2,
+        "importPath": "src.utils.helper",
+        "description": "src.utils.helper",
+        "peekOfCode": "def status_update(request_data, db, Model):\n    try:\n        query = db.query(Model).filter(\n            Model.id.in_(request_data.checkbox_val))\n        if request_data.status_update == \"DELETE\":\n            rows_deleted = query.delete(synchronize_session=False)\n            db.commit()\n            if rows_deleted == 0:\n                return JSONResponse(\n                    content={\"status\": \"error\",",
+        "detail": "src.utils.helper",
+        "documentation": {}
+    },
+    {
+        "label": "sort_search_paginate_data",
+        "kind": 2,
+        "importPath": "src.utils.helper",
+        "description": "src.utils.helper",
+        "peekOfCode": "def sort_search_paginate_data(request_data, db, Model, query, page):\n    limit = getattr(request_data, \"limit_per_page\", 10) or 10\n    sort_order = getattr(request_data, \"sort_order\", \"ASC\").upper()\n    sort_column_name = getattr(request_data, \"sort_column\", \"id\")\n    search_field_value = getattr(request_data, \"search_field\", None)\n    print(\"search_field_value,search_column_name\",\n          search_field_value, sort_column_name)\n    if search_field_value and sort_column_name:\n        search_column = getattr(Model, sort_column_name, None)\n        if search_column is not None:",
+        "detail": "src.utils.helper",
+        "documentation": {}
+    },
+    {
+        "label": "edit_data",
+        "kind": 2,
+        "importPath": "src.utils.helper",
+        "description": "src.utils.helper",
+        "peekOfCode": "def edit_data(db, Model, edit_id):\n    return db.query(Model).filter(Model.id == edit_id).first()",
+        "detail": "src.utils.helper",
         "documentation": {}
     },
     {
@@ -1652,6 +2040,15 @@
         "importPath": "src.utils.request_parser",
         "description": "src.utils.request_parser",
         "peekOfCode": "class MultiFormatRequest:\n    @classmethod\n    async def from_request(cls: Type[T], request: Request) -> T:\n        content_type = request.headers.get(\"content-type\", \"\")\n        data = {}\n        if not content_type:\n            return cls(**data)\n        if \"application/json\" in content_type:\n            data = await request.json()\n        elif \"application/x-www-form-urlencoded\" in content_type or \"multipart/form-data\" in content_type:",
+        "detail": "src.utils.request_parser",
+        "documentation": {}
+    },
+    {
+        "label": "BaseDic",
+        "kind": 6,
+        "importPath": "src.utils.request_parser",
+        "description": "src.utils.request_parser",
+        "peekOfCode": "class BaseDic:\n    @declared_attr\n    def __tablename__(cls):\n        return cls.__name__.lower()\n    def as_dict(self, exclude_fields=None):\n        if exclude_fields is None:\n            exclude_fields = []\n        result = {}\n        for c in self.__table__.columns:\n            if c.name in exclude_fields:",
         "detail": "src.utils.request_parser",
         "documentation": {}
     },

@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
-from src import engine, admin_role_route, user_route, staff_route, site_setting_route, models
+from src import engine, user_route, staff_route, site_setting_route, models
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
@@ -106,7 +106,6 @@ async def value_error_handler(request: Request, exc: ValueError):
 
 # --------------------- ROUTES INCLUDED -------------------------#
 
-app.include_router(admin_role_route.router)
 app.include_router(user_route.router)
 app.include_router(staff_route.router, prefix='/api', tags=['api'])
 app.include_router(site_setting_route.router, prefix='/api', tags=['api'])

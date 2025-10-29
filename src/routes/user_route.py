@@ -54,10 +54,10 @@ async def login_user(
 
 
 @router.post("/change-password")
-async def change_password(request_data: Annotated[ChangePassword, Depends(ChangePassword.from_request)], db: DBSession, valid_user=Depends(validate_token)):
+async def change_password(request_data: Annotated[ChangePassword, Depends(ChangePassword.from_request)], db: DBSession, valid_token=Depends(validate_token)):
 
-    if isinstance(valid_user, JSONResponse):
-        return valid_user
+    if isinstance(valid_token, JSONResponse):
+        return valid_token
 
     try:
         user = db.query(Users).filter(Users.id == request_data.id).first()

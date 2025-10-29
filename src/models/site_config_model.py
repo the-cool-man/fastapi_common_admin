@@ -4,9 +4,15 @@ from ..db_connection import Base
 from sqlalchemy import Column, Integer, BigInteger, String, Enum, DateTime, TIMESTAMP, ForeignKey, Text
 from sqlalchemy.sql import func
 import enum
+from src.utils.request_parser import BaseDic
 
 
 class ConfigStatusEnum(str, enum.Enum):
+    INACTIVE = "I"
+    ACTIVE = "A"
+
+
+class SocialMediaStatusEnum(str, enum.Enum):
     INACTIVE = "I"
     ACTIVE = "A"
 
@@ -57,7 +63,6 @@ class SiteConfig(Base):
     deleted_at = Column(TIMESTAMP(timezone=True))
 
     def as_dict(self, exclude_fields=None, base_url=None):
-        print("base_url in model", base_url)
         if exclude_fields is None:
             exclude_fields = []
 
@@ -80,3 +85,56 @@ class SiteConfig(Base):
             result["favicon_full_url"] = f"{base_url}/favicons/{self.favicon}" if self.favicon else None
 
         return result
+
+
+class SocialMedia(Base, BaseDic):
+    __tablename__ = "social_networking_links"
+    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
+    status = Column(
+        Enum(SocialMediaStatusEnum, values_callable=lambda enum_cls: [
+             e.value for e in enum_cls]),
+        nullable=False,
+        default=SocialMediaStatusEnum.INACTIVE
+    )
+    social_name = Column(String(50))
+    social_link = Column(String(200))
+    social_logo = Column(String(100))
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+    updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+    deleted_at = Column(TIMESTAMP(timezone=True))
+
+    # def as_dict(self, exclude_fields=None):
+    #     if exclude_fields is None:
+    #         exclude_fields = []
+
+    #     result = {}
+    #     for c in self.__table__.columns:
+    #         if c.name in exclude_fields:
+    #             continue
+
+    #         value = getattr(self, c.name)
+    #         if isinstance(value, (datetime, date)):
+    #             result[c.name] = value.isoformat()
+    #         elif isinstance(value, Decimal):
+    #             result[c.name] = float(value)
+    #         else:
+    #             result[c.name] = value
+    #     return result
+
+
+class PublicPageSEO(Base, BaseDic):
+    __tablename__ = "public_pages_seo"
+    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
+    status = Column(
+        Enum(SocialMediaStatusEnum, values_callable=lambda enum_cls: [
+             e.value for e in enum_cls]),
+        nullable=False,
+        default=SocialMediaStatusEnum.INACTIVE
+    )
+    page_name = Column(String(50))
+    meta_title = Column(String(200))
+    meta_description = Column(String(300))
+    meta_image = Column(String(100))
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+    updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+    deleted_at = Column(TIMESTAMP(timezone=True))
