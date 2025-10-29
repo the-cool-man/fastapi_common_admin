@@ -3,10 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
 # VS Code
 .vscode/
 
 # Virtual environments
+.env
 venv/
 .env/
 env/
