@@ -7,12 +7,7 @@ import enum
 from src.utils.request_parser import BaseDic
 
 
-class ConfigStatusEnum(str, enum.Enum):
-    INACTIVE = "I"
-    ACTIVE = "A"
-
-
-class SocialMediaStatusEnum(str, enum.Enum):
+class StatusEnum(str, enum.Enum):
     INACTIVE = "I"
     ACTIVE = "A"
 
@@ -22,10 +17,10 @@ class SiteConfig(Base):
 
     id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
     status = Column(
-        Enum(ConfigStatusEnum, values_callable=lambda enum_cls: [
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
              e.value for e in enum_cls]),
         nullable=False,
-        default=ConfigStatusEnum.INACTIVE
+        default=StatusEnum.INACTIVE
     )
 
     web_name = Column(String(200))
@@ -45,10 +40,10 @@ class SiteConfig(Base):
     map_address = Column(Text)
     sms_api = Column(String(500))
     sms_api_status = Column(
-        Enum(ConfigStatusEnum, values_callable=lambda enum_cls: [
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
              e.value for e in enum_cls]),
         nullable=False,
-        default=ConfigStatusEnum.INACTIVE
+        default=StatusEnum.INACTIVE
     )
     android_app_link = Column(String(100))
     ios_app_link = Column(String(100))
@@ -91,10 +86,10 @@ class SocialMedia(Base, BaseDic):
     __tablename__ = "social_networking_links"
     id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
     status = Column(
-        Enum(SocialMediaStatusEnum, values_callable=lambda enum_cls: [
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
              e.value for e in enum_cls]),
         nullable=False,
-        default=SocialMediaStatusEnum.INACTIVE
+        default=StatusEnum.INACTIVE
     )
     social_name = Column(String(50))
     social_link = Column(String(200))
@@ -103,33 +98,15 @@ class SocialMedia(Base, BaseDic):
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
     deleted_at = Column(TIMESTAMP(timezone=True))
 
-    # def as_dict(self, exclude_fields=None):
-    #     if exclude_fields is None:
-    #         exclude_fields = []
-
-    #     result = {}
-    #     for c in self.__table__.columns:
-    #         if c.name in exclude_fields:
-    #             continue
-
-    #         value = getattr(self, c.name)
-    #         if isinstance(value, (datetime, date)):
-    #             result[c.name] = value.isoformat()
-    #         elif isinstance(value, Decimal):
-    #             result[c.name] = float(value)
-    #         else:
-    #             result[c.name] = value
-    #     return result
-
 
 class PublicPageSEO(Base, BaseDic):
     __tablename__ = "public_pages_seo"
     id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
     status = Column(
-        Enum(SocialMediaStatusEnum, values_callable=lambda enum_cls: [
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
              e.value for e in enum_cls]),
         nullable=False,
-        default=SocialMediaStatusEnum.INACTIVE
+        default=StatusEnum.INACTIVE
     )
     page_name = Column(String(50))
     meta_title = Column(String(200))

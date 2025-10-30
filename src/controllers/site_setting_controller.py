@@ -3,7 +3,6 @@ from ..models import SiteConfig, SocialMedia as Social, PublicPageSEO as PageSEO
 import os
 import time
 from pathlib import Path
-import json
 import uuid
 
 UPLOAD_DIR = "uploads"

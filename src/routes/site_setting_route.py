@@ -119,7 +119,7 @@ def get_social_media_data(request_data: Annotated[ListDataSchema, Depends(ListDa
 
 
 @router.post("/add-social-media-link")
-def add_social_media(
+async def add_social_media(
     request_data: Annotated[SocialMediaSchema, Depends(SocialMediaSchema.from_request)],
     db: DBSession,
     valid_token=Depends(validate_token)
@@ -127,7 +127,7 @@ def add_social_media(
     if (res := check_token_response(valid_token)):
         return res
 
-    return handleSocialMedia(request_data, db)
+    return await handleSocialMedia(request_data, db)
 
 
 @router.get("/social-media/edit/{edit_id}")
