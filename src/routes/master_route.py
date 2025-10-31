@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Request
 from fastapi.responses import JSONResponse
 from typing import Annotated
 from ..schemas import ListDataSchema, BannerSchema, CategorySchema, CurrencySchema, GstPercentageSchema, CountrySchema, StateSchema, CitySchema
@@ -13,7 +13,7 @@ router = APIRouter()
 # BANNER ROUTE ----------------------------
 
 @router.post("/banner-list")
-def banner_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def banner_get_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -27,7 +27,7 @@ def banner_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSche
 
     query = db.query(Banner)
     response_data = sort_search_paginate_data(
-        request_data, db, Banner, query, page)
+        request_data, db, Banner, query, page, folder="banner", request=request)
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -68,7 +68,7 @@ def banner_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_t
 # CATEGORY ROUTE ----------------------------
 
 @router.post("/category-list")
-def category_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def category_get_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -82,7 +82,7 @@ def category_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSc
 
     query = db.query(Category)
     response_data = sort_search_paginate_data(
-        request_data, db, Category, query, page)
+        request_data, db, Category, query, page, folder="category", request=request)
 
     return JSONResponse(content=response_data, status_code=200)
 

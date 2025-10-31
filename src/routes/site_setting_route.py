@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Request, Query
+from fastapi import APIRouter, Depends, Request, Query, Request
 from fastapi.responses import JSONResponse
 from typing import Annotated
 from ..models import SiteConfig, SocialMedia as Social, PublicPageSEO as PageSEO
@@ -99,7 +99,7 @@ def get_all_site_setting_data(request: Request, db: DBSession, valid_token=Depen
 # SOCIAL MEDIA ROUTE ----------------------------
 
 @router.post("/social-media")
-def get_social_media_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def get_social_media_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -113,7 +113,7 @@ def get_social_media_data(request_data: Annotated[ListDataSchema, Depends(ListDa
 
     query = db.query(Social)
     response_data = sort_search_paginate_data(
-        request_data, db, Social, query, page)
+        request_data, db, Social, query, page, folder="social", request=request)
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -154,7 +154,7 @@ def social_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_t
 # PUBLIC PAGE SEO ROUTE ----------------------------
 
 @router.post("/seo-pages-data")
-def get_page_seo_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def get_page_seo_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -168,7 +168,7 @@ def get_page_seo_data(request_data: Annotated[ListDataSchema, Depends(ListDataSc
 
     query = db.query(PageSEO)
     response_data = sort_search_paginate_data(
-        request_data, db, PageSEO, query, page)
+        request_data, db, PageSEO, query, page, folder="seoImage", request=request)
 
     return JSONResponse(content=response_data, status_code=200)
 

@@ -55,13 +55,15 @@ def status_update(request_data, db, Model):
         )
 
 
-def sort_search_paginate_data(request_data, db, Model, query, page):
+def sort_search_paginate_data(request_data, db, Model, query, page, folder, request):
     limit = getattr(request_data, "limit_per_page", 10) or 10
     sort_order = getattr(request_data, "sort_order", "ASC").upper()
     sort_column_name = getattr(request_data, "sort_column", "id")
     search_field_value = getattr(request_data, "search_field", None)
-    print("search_field_value,search_column_name",
-          search_field_value, sort_column_name)
+  
+    if folder:
+        base_url = f"{request.url.scheme}://{request.url.hostname}:{request.url.port}/api/uploads/{folder}"
+
     if search_field_value and sort_column_name:
         search_column = getattr(Model, sort_column_name, None)
         if search_column is not None:
@@ -79,7 +81,8 @@ def sort_search_paginate_data(request_data, db, Model, query, page):
     offset = (page - 1) * limit
     all_data = query.offset(offset).limit(limit).all()
 
-    all_data_list = [row.as_dict() for row in all_data] if all_data else []
+    all_data_list = [row.as_dict(base_url=base_url)
+                     for row in all_data] if all_data else []
 
     response_data = {
         "status": "success",

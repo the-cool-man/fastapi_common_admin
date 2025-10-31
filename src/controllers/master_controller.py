@@ -145,7 +145,7 @@ async def handleCategorySave(request_data, db):
 
         if request_data.category_icon:
             model_data.category_icon = await handle_file_upload(
-                request_data.category_icon, BANNER_DIR, model_data.category_icon
+                request_data.category_icon, CATEGORY_DIR, model_data.category_icon
             )
 
         model_data.category_name = request_data.category_name
@@ -348,7 +348,8 @@ async def handleCountrySave(request_data, db):
             content={"status": "error", "message": str(err)},
             status_code=200
         )
-        
+
+
 async def handleStateSave(request_data, db):
     try:
         if request_data.id is None:
@@ -406,7 +407,8 @@ async def handleStateSave(request_data, db):
             content={"status": "error", "message": str(err)},
             status_code=200
         )
-        
+
+
 async def handleCitySave(request_data, db):
     try:
         if request_data.id is None:

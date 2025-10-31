@@ -97,6 +97,7 @@ class SocialMedia(Base, BaseDic):
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
     deleted_at = Column(TIMESTAMP(timezone=True))
+    
 
 
 class PublicPageSEO(Base, BaseDic):

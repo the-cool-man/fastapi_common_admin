@@ -53,14 +53,13 @@ class MultiFormatRequest:
         return cls(**data)
 
 
-
 @as_declarative()
 class BaseDic:
     @declared_attr
     def __tablename__(cls):
         return cls.__name__.lower()
 
-    def as_dict(self, exclude_fields=None):
+    def as_dict(self, exclude_fields=None, base_url=None):
         if exclude_fields is None:
             exclude_fields = []
 
@@ -76,4 +75,16 @@ class BaseDic:
                 result[c.name] = float(value)
             else:
                 result[c.name] = value
+
+        if base_url:
+            possible_image_fields = [
+                "social_logo", "meta_image", "banner", "category_icon"]
+            for field in possible_image_fields:
+                if hasattr(self, field):
+                    image_value = getattr(self, field)
+                    if image_value:
+                        result["image_full_url"] = f"{base_url}/{image_value}"
+                        break
+            else:
+                result["image_full_url"] = None
         return result
