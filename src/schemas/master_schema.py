@@ -113,3 +113,44 @@ class GstPercentageSchema(BaseModel, MultiFormatRequest):
         if v not in ["A", "I"]:
             raise ValueError("Status Must Be A or I")
         return v
+
+
+class CountrySchema(BaseModel, MultiFormatRequest):
+    id: Optional[int] = None
+    status: str
+    country_name: str
+    country_code: str
+    flag: Optional[str] = None
+
+    @field_validator("status")
+    def status_validation(cls, v):
+        if v not in ["A", "I"]:
+            raise ValueError("Status Must Be A or I")
+        return v
+
+
+class StateSchema(BaseModel, MultiFormatRequest):
+    id: Optional[int] = None
+    status: str
+    country_id: str
+    state_name: str
+
+    @field_validator("status")
+    def status_validation(cls, v):
+        if v not in ["A", "I"]:
+            raise ValueError("Status Must Be A or I")
+        return v
+
+
+class CitySchema(BaseModel, MultiFormatRequest):
+    id: Optional[int] = None
+    status: str
+    city_name: str
+    country_id: str
+    state_id: str
+
+    @field_validator("status")
+    def status_validation(cls, v):
+        if v not in ["A", "I"]:
+            raise ValueError("Status Must Be A or I")
+        return v

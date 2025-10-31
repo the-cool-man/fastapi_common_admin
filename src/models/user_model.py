@@ -43,7 +43,7 @@ class AdminUser(Base):
         default=UserTypeEnum.ADMIN
     )
     role = Column(Integer, ForeignKey("admin_role.id",
-                                      ondelete="SET NULL"))  # FK to admin_role
+                                      ondelete="SET NULL"))
     deleted_at = Column(TIMESTAMP(timezone=True))
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())

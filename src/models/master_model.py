@@ -1,5 +1,6 @@
 from datetime import datetime, date
 from decimal import Decimal
+from sqlalchemy.orm import relationship
 from ..db_connection import Base
 from sqlalchemy import Column, Integer, BigInteger, String, Enum, DateTime, TIMESTAMP, ForeignKey, Text
 from sqlalchemy.sql import func
@@ -90,3 +91,71 @@ class GstPercentageModel(Base, BaseDic):
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
     deleted_at = Column(TIMESTAMP(timezone=True))
+
+
+class CountryModel(Base, BaseDic):
+    __tablename__ = "country_master"
+
+    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
+    status = Column(
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
+             e.value for e in enum_cls]),
+        nullable=False,
+        default=StatusEnum.INACTIVE
+    )
+    country_name = Column(String(100), nullable=False)
+    country_code = Column(String(10), nullable=False)
+    flag = Column(String(255))
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+    updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+    deleted_at = Column(TIMESTAMP(timezone=True))
+
+    # Relationship
+    states = relationship("StateModel", back_populates="country")
+    cities = relationship("CityModel", back_populates="country")
+
+
+class StateModel(Base, BaseDic):
+    __tablename__ = "state_master"
+
+    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
+    status = Column(
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
+             e.value for e in enum_cls]),
+        nullable=False,
+        default=StatusEnum.INACTIVE
+    )
+    country_id = Column(BigInteger, ForeignKey(
+        "country_master.id", ondelete="CASCADE"))
+    state_name = Column(String(100), nullable=False)
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+    updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+    deleted_at = Column(TIMESTAMP(timezone=True))
+
+    # Relationship
+    country = relationship("CountryModel", back_populates="states")
+    cities = relationship("CityModel", back_populates="state")
+
+
+class CityModel(Base, BaseDic):
+    __tablename__ = "city_master"
+
+    id = Column(BigInteger, primary_key=True, index=True, autoincrement=True)
+    status = Column(
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
+             e.value for e in enum_cls]),
+        nullable=False,
+        default=StatusEnum.INACTIVE
+    )
+    city_name = Column(String(100), nullable=False)
+    country_id = Column(BigInteger, ForeignKey(
+        "country_master.id", ondelete="CASCADE"))
+    state_id = Column(BigInteger, ForeignKey(
+        "state_master.id", ondelete="CASCADE"))
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+    updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+    deleted_at = Column(TIMESTAMP(timezone=True))
+
+    # Relationship
+    country = relationship("CountryModel", back_populates="cities")
+    state = relationship("StateModel", back_populates="cities")

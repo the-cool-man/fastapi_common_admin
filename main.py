@@ -25,7 +25,7 @@ app.add_middleware(
 UPLOAD_DIR = Path(__file__).parent / "uploads"
 app.mount("/api/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 print("UPLOAD_DIR", UPLOAD_DIR)
-# models.Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
 
 # @app.get("/debug-files")

@@ -1,13 +1,20 @@
-from ..models import BannerModel as Banner, CategoryModel as Category, CurrencyModel as Currency
+from ..models import BannerModel as Banner, CategoryModel as Category, CurrencyModel as Currency, GstPercentageModel as GST, CountryModel as Country, StateModel as State, CityModel as City
 from fastapi.responses import JSONResponse
 import os
 import time
 import uuid
+import json
+from pathlib import Path
 
 
 UPLOAD_DIR = "uploads"
 BANNER_DIR = os.path.join(UPLOAD_DIR, "banner")
 CATEGORY_DIR = os.path.join(UPLOAD_DIR, "category")
+
+iso_path = Path(__file__).parent.parent / "utils" / "country_to_iso.json"
+
+with open(iso_path, "r", encoding="utf-8") as f:
+    COUNTRY_TO_ISO = json.load(f)
 
 
 async def handle_file_upload(file, upload_dir, old_file=None):
@@ -214,6 +221,240 @@ async def handleCurrencySave(request_data, db):
             content={
                 "status": "success",
                 "message": f"Currency {message} successfully",
+            },
+            status_code=200
+        )
+
+    except Exception as err:
+        db.rollback()
+        return JSONResponse(
+            content={"status": "error", "message": str(err)},
+            status_code=200
+        )
+
+
+async def handleGSTPercentageSave(request_data, db):
+
+    try:
+        if request_data.id is None:
+            if db.query(GST).filter(
+                GST.gst_percentage == request_data.gst_percentage
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "gst_percentage has already been taken."},
+                    status_code=200
+                )
+            model_data = GST()
+            message = "inserted"
+        else:
+            model_data = db.query(GST).filter(
+                GST.id == request_data.id
+            ).first()
+
+            if (err := handle_not_found(model_data)):
+                return err
+
+            if db.query(GST).filter(
+                GST.gst_percentage == request_data.gst_percentage, Currency.id != request_data.id
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "gst_percentage has already been taken."},
+                    status_code=200
+                )
+
+            message = "updated"
+
+        model_data.gst_percentage = request_data.gst_percentage
+        model_data.status = request_data.status
+
+        db.add(model_data)
+        db.commit()
+        db.refresh(model_data)
+
+        return JSONResponse(
+            content={
+                "status": "success",
+                "message": f"GST Percentage {message} successfully",
+            },
+            status_code=200
+        )
+
+    except Exception as err:
+        db.rollback()
+        return JSONResponse(
+            content={"status": "error", "message": str(err)},
+            status_code=200
+        )
+
+
+async def handleCountrySave(request_data, db):
+    try:
+        if request_data.id is None:
+            # Insert
+            if db.query(Country).filter(
+                Country.country_name == request_data.country_name
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "country_name has already been taken."},
+                    status_code=200
+                )
+            model_data = Country()
+            message = "inserted"
+        else:
+            # Update
+            model_data = db.query(Country).filter(
+                Country.id == request_data.id
+            ).first()
+
+            if (err := handle_not_found(model_data)):
+                return err
+
+            if db.query(Country).filter(
+                Country.country_name == request_data.country_name,
+                Country.id != request_data.id
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "country_name has already been taken."},
+                    status_code=200
+                )
+            message = "updated"
+
+        # Set fields
+        iso_code = COUNTRY_TO_ISO.get(request_data.country_name, None)
+        model_data.country_name = request_data.country_name
+        model_data.country_code = f"+{request_data.country_code}"
+        model_data.flag = iso_code
+        model_data.status = request_data.status
+
+        db.add(model_data)
+        db.commit()
+        db.refresh(model_data)
+
+        return JSONResponse(
+            content={
+                "status": "success",
+                "message": f"country {message} successfully",
+            },
+            status_code=200
+        )
+
+    except Exception as err:
+        db.rollback()
+        return JSONResponse(
+            content={"status": "error", "message": str(err)},
+            status_code=200
+        )
+        
+async def handleStateSave(request_data, db):
+    try:
+        if request_data.id is None:
+            # Insert
+            if db.query(State).filter(
+                State.state_name == request_data.state_name
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "state_name has already been taken."},
+                    status_code=200
+                )
+            model_data = State()
+            message = "inserted"
+        else:
+            # Update
+            model_data = db.query(State).filter(
+                State.id == request_data.id
+            ).first()
+
+            if (err := handle_not_found(model_data)):
+                return err
+
+            if db.query(State).filter(
+                State.state_name == request_data.state_name,
+                State.id != request_data.id
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "state_name has already been taken."},
+                    status_code=200
+                )
+            message = "updated"
+
+        # Set fields
+        model_data.state_name = request_data.state_name
+        model_data.country_id = request_data.country_id
+        model_data.status = request_data.status
+
+        db.add(model_data)
+        db.commit()
+        db.refresh(model_data)
+
+        return JSONResponse(
+            content={
+                "status": "success",
+                "message": f"state {message} successfully",
+            },
+            status_code=200
+        )
+
+    except Exception as err:
+        db.rollback()
+        return JSONResponse(
+            content={"status": "error", "message": str(err)},
+            status_code=200
+        )
+        
+async def handleCitySave(request_data, db):
+    try:
+        if request_data.id is None:
+            # Insert
+            if db.query(City).filter(
+                City.city_name == request_data.city_name
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "city_name has already been taken."},
+                    status_code=200
+                )
+            model_data = City()
+            message = "inserted"
+        else:
+            # Update
+            model_data = db.query(City).filter(
+                City.id == request_data.id
+            ).first()
+
+            if (err := handle_not_found(model_data)):
+                return err
+
+            if db.query(City).filter(
+                City.city_name == request_data.city_name,
+                City.id != request_data.id
+            ).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "city_name has already been taken."},
+                    status_code=200
+                )
+            message = "updated"
+
+        # Set fields
+        model_data.city_name = request_data.city_name
+        model_data.country_id = request_data.country_id
+        model_data.state_id = request_data.state_id
+        model_data.status = request_data.status
+
+        db.add(model_data)
+        db.commit()
+        db.refresh(model_data)
+
+        return JSONResponse(
+            content={
+                "status": "success",
+                "message": f"city {message} successfully",
             },
             status_code=200
         )
