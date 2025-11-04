@@ -27,7 +27,7 @@ def banner_get_data(request: Request, request_data: Annotated[ListDataSchema, De
 
     query = db.query(Banner)
     response_data = sort_search_paginate_data(
-        request_data, db, Banner, query, page, folder="banner", request=request)
+        request_data, db, Banner, query, page, folder="banner", request=request, search_column="banner_title")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -82,7 +82,7 @@ def category_get_data(request: Request, request_data: Annotated[ListDataSchema, 
 
     query = db.query(Category)
     response_data = sort_search_paginate_data(
-        request_data, db, Category, query, page, folder="category", request=request)
+        request_data, db, Category, query, page, folder="category", request=request, search_column="category_name")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -137,7 +137,7 @@ def category_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSc
 
     query = db.query(Currency)
     response_data = sort_search_paginate_data(
-        request_data, db, Currency, query, page)
+        request_data, db, Currency, query, page, search_column="currency_name")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -192,7 +192,7 @@ def gst_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.
 
     query = db.query(GST)
     response_data = sort_search_paginate_data(
-        request_data, db, GST, query, page)
+        request_data, db, GST, query, page, search_column="gst_percentage")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -247,7 +247,7 @@ def country_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSch
 
     query = db.query(Country)
     response_data = sort_search_paginate_data(
-        request_data, db, Country, query, page)
+        request_data, db, Country, query, page, search_column="country_name")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -302,7 +302,7 @@ def state_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchem
 
     query = db.query(State)
     response_data = sort_search_paginate_data(
-        request_data, db, State, query, page)
+        request_data, db, State, query, page, search_column="state_name")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -357,7 +357,7 @@ def city_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema
 
     query = db.query(City)
     response_data = sort_search_paginate_data(
-        request_data, db, City, query, page)
+        request_data, db, City, query, page, search_column="city_name")
 
     return JSONResponse(content=response_data, status_code=200)
 

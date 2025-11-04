@@ -88,7 +88,7 @@ def staff_member_list(request_data: Annotated[ListDataSchema, Depends(ListDataSc
     query = db.query(Users).filter(Users.user_type != "S")
     # query = db.query(Users).filter()
     response_data = sort_search_paginate_data(
-        request_data, db, Users, query, page)
+        request_data, db, Users, query, page, search_column="username")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -204,7 +204,7 @@ def staff_role_list(request_data: Annotated[ListDataSchema, Depends(ListDataSche
 
     query = db.query(Role).filter()
     response_data = sort_search_paginate_data(
-        request_data, db, Role, query, page)
+        request_data, db, Role, query, page, search_column="role_name")
 
     return JSONResponse(content=response_data, status_code=200)
 

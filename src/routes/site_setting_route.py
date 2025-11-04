@@ -113,7 +113,7 @@ def get_social_media_data(request: Request, request_data: Annotated[ListDataSche
 
     query = db.query(Social)
     response_data = sort_search_paginate_data(
-        request_data, db, Social, query, page, folder="social", request=request)
+        request_data, db, Social, query, page, search_column="social_name", folder="social", request=request)
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -168,7 +168,7 @@ def get_page_seo_data(request: Request, request_data: Annotated[ListDataSchema, 
 
     query = db.query(PageSEO)
     response_data = sort_search_paginate_data(
-        request_data, db, PageSEO, query, page, folder="seoImage", request=request)
+        request_data, db, PageSEO, query, page, search_column="page_name", folder="seoImage", request=request)
 
     return JSONResponse(content=response_data, status_code=200)
 

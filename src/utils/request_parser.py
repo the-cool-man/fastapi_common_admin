@@ -78,7 +78,7 @@ class BaseDic:
 
         if base_url:
             possible_image_fields = [
-                "social_logo", "meta_image", "banner", "category_icon"]
+                "social_logo", "meta_image", "banner", "category_icon", "photo"]
             for field in possible_image_fields:
                 if hasattr(self, field):
                     image_value = getattr(self, field)
