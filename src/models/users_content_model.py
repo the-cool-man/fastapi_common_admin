@@ -87,6 +87,25 @@ class OrdinaryUserDetailModel(Base, BaseDic):
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
 
 
+class OrdinaryUserRatingModel(Base, BaseDic):
+    __tablename__ = "user_ratings"
+
+    id = Column(BigInteger, primary_key=True, autoincrement=True, index=True)
+    rating = Column(Integer)
+    posted_id = Column(Integer)
+    message = Column(Text)
+    status = Column(
+        Enum(StatusEnum, values_callable=lambda enum_cls: [
+             e.value for e in enum_cls]),
+        nullable=True,
+        default=StatusEnum.INACTIVE
+    )
+    user_id = Column(BigInteger, ForeignKey("users.id", ondelete="SET NULL"))
+
+    deleted_at = Column(TIMESTAMP(timezone=True))
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+    updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+
 
 class MediaGalleryModel(Base, BaseDic):
     __tablename__ = "photo_gallery"

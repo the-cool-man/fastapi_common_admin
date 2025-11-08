@@ -1,11 +1,18 @@
 from fastapi.responses import JSONResponse
 from sqlalchemy import desc, asc
+from ..utils import get_request
 
 
 def check_token_response(valid_token):
     if isinstance(valid_token, JSONResponse):
         return valid_token
     return None
+
+
+def get_base_url(folder: str) -> str:
+    request = get_request()
+    base = str(request.base_url).rstrip("/")
+    return f"{base}/api/uploads/{folder}"
 
 
 def status_update(request_data, db, Model):
@@ -55,15 +62,14 @@ def status_update(request_data, db, Model):
         )
 
 
-def sort_search_paginate_data(request_data, db, Model, query, page, search_column, folder=None, request=None):
+def sort_search_paginate_data(request_data, db, Model, query, page, search_column, folder=None):
     limit = getattr(request_data, "limit_per_page", 10) or 10
     sort_order = getattr(request_data, "sort_order", "ASC").upper()
     sort_column_name = getattr(request_data, "sort_column", "id")
     search_field_value = getattr(request_data, "search_field", None)
 
-    base_url = None
-    if folder and request:
-        base_url = f"{request.url.scheme}://{request.url.hostname}:{request.url.port}/api/uploads/{folder}"
+    if folder:
+        base_url = get_base_url(folder)
 
     sort_column = getattr(Model, sort_column_name, None)
     if sort_column is not None:
@@ -107,5 +113,20 @@ def sort_search_paginate_data(request_data, db, Model, query, page, search_colum
     return response_data
 
 
-def edit_data(db, Model, edit_id):
-    return db.query(Model).filter(Model.id == edit_id).first()
+def edit_data(db, Model, edit_id, folder = None):
+    edit_data = db.query(Model).filter(Model.id == edit_id).first()
+
+    if folder:
+        base_url = get_base_url(folder)
+
+    if edit_data is None:
+        return JSONResponse(
+            content={"status": "error", "message": "Record not found!"},
+            status_code=200
+        )
+
+    return JSONResponse(
+        content={"status": "success", "message": "Data Display!",
+                 "data": edit_data.as_dict(base_url=base_url)},
+        status_code=200
+    )

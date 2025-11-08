@@ -13,7 +13,7 @@ router = APIRouter()
 # BANNER ROUTE ----------------------------
 
 @router.post("/banner-list")
-def banner_get_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def banner_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -27,7 +27,7 @@ def banner_get_data(request: Request, request_data: Annotated[ListDataSchema, De
 
     query = db.query(Banner)
     response_data = sort_search_paginate_data(
-        request_data, db, Banner, query, page, folder="banner", request=request, search_column="banner_title")
+        request_data, db, Banner, query, page, search_column="banner_title", folder="banner")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -50,25 +50,13 @@ def banner_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_t
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, Banner, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, Banner, edit_id, folder="banner")
 
 
 # CATEGORY ROUTE ----------------------------
 
 @router.post("/category-list")
-def category_get_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def category_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -82,7 +70,7 @@ def category_get_data(request: Request, request_data: Annotated[ListDataSchema, 
 
     query = db.query(Category)
     response_data = sort_search_paginate_data(
-        request_data, db, Category, query, page, folder="category", request=request, search_column="category_name")
+        request_data, db, Category, query, page, search_column="category_name", folder="category")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -105,19 +93,7 @@ def category_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, Category, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, Category, edit_id, folder="category")
 
 
 # CURRENCY ROUTE ----------------------------
@@ -160,19 +136,7 @@ def category_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, Currency, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, Currency, edit_id)
 
 
 # GST PERCENTAGE ROUTE ----------------------------
@@ -215,19 +179,7 @@ def gst_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_toke
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, GST, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, GST, edit_id)
 
 
 # COUNTRY ROUTE ----------------------------
@@ -270,19 +222,7 @@ def country_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, Country, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, Country, edit_id)
 
 
 # STATE ROUTE ----------------------------
@@ -325,19 +265,7 @@ def state_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_to
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, State, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, State, edit_id)
 
 
 # CITY ROUTE ----------------------------
@@ -380,16 +308,4 @@ def city_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_tok
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, City, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, City, edit_id)

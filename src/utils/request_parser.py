@@ -6,6 +6,8 @@ from sqlalchemy.ext.declarative import declared_attr
 from datetime import datetime, date
 from decimal import Decimal
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
+import contextvars
+from fastapi import Request
 
 
 T = TypeVar("T")
@@ -88,3 +90,14 @@ class BaseDic:
             else:
                 result["image_full_url"] = None
         return result
+
+
+_request_context = contextvars.ContextVar("request")
+
+
+def set_request(request: Request):
+    _request_context.set(request)
+
+
+def get_request() -> Request:
+    return _request_context.get()

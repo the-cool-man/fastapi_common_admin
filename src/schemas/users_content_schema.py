@@ -70,3 +70,76 @@ class OrdinaryUserSchema(BaseModel, MultiFormatRequest):
         if len(v) < 6 or len(v) > 8:
             raise ValueError("Password must be between 6 and 8 characters")
         return v
+
+
+class MediaGallerySchema(BaseModel, MultiFormatRequest):
+
+    id: Optional[int] = None
+    status: str
+    media_name: UploadFile
+
+    @field_validator("media_name")
+    def validate_images(cls, file: UploadFile):
+        if not file:
+            return file
+
+        filename = file.filename.lower()
+        ext = os.path.splitext(filename)[1]
+        if ext not in ALLOWED_EXTENSIONS:
+            raise ValueError(
+                "media_name must be .jpg, .jpeg, or .png files")
+
+        file.file.seek(0, 2)
+        size = file.file.tell()
+        file.file.seek(0)
+        if size > MAX_FILE_SIZE:
+            raise ValueError("media_name file size must be 5MB or less")
+        return file
+
+    @field_validator("status")
+    def status_validation(cls, v):
+        if v not in ["A", "I"]:
+            raise ValueError("Status Must Be A or I")
+        return v
+
+
+class CmsPageSchema(BaseModel, MultiFormatRequest):
+
+    id: Optional[int] = None
+    status: str
+    meta_image: UploadFile
+    page_title: str
+    page_content: str
+    meta_title: str
+    meta_description: str
+    display_footer: str
+
+    @field_validator("meta_image")
+    def validate_images(cls, file: UploadFile):
+        if not file:
+            return file
+
+        filename = file.filename.lower()
+        ext = os.path.splitext(filename)[1]
+        if ext not in ALLOWED_EXTENSIONS:
+            raise ValueError(
+                "meta_image must be .jpg, .jpeg, or .png files")
+
+        file.file.seek(0, 2)
+        size = file.file.tell()
+        file.file.seek(0)
+        if size > MAX_FILE_SIZE:
+            raise ValueError("meta_image file size must be 5MB or less")
+        return file
+
+    @field_validator("status")
+    def status_validation(cls, v):
+        if v not in ["A", "I"]:
+            raise ValueError("Status Must Be A or I")
+        return v
+
+    @field_validator("display_footer")
+    def status_validation(cls, v):
+        if v not in ["Y", "N"]:
+            raise ValueError("Status Must Be Y or N")
+        return v

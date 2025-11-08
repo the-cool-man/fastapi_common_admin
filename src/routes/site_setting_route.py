@@ -99,7 +99,7 @@ def get_all_site_setting_data(request: Request, db: DBSession, valid_token=Depen
 # SOCIAL MEDIA ROUTE ----------------------------
 
 @router.post("/social-media")
-def get_social_media_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def get_social_media_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -113,7 +113,7 @@ def get_social_media_data(request: Request, request_data: Annotated[ListDataSche
 
     query = db.query(Social)
     response_data = sort_search_paginate_data(
-        request_data, db, Social, query, page, search_column="social_name", folder="social", request=request)
+        request_data, db, Social, query, page, search_column="social_name", folder="social")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -136,25 +136,13 @@ def social_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_t
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, Social, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, Social, edit_id, folder="social")
 
 
 # PUBLIC PAGE SEO ROUTE ----------------------------
 
 @router.post("/seo-pages-data")
-def get_page_seo_data(request: Request, request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
+def get_page_seo_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
         return res
@@ -168,7 +156,7 @@ def get_page_seo_data(request: Request, request_data: Annotated[ListDataSchema, 
 
     query = db.query(PageSEO)
     response_data = sort_search_paginate_data(
-        request_data, db, PageSEO, query, page, search_column="page_name", folder="seoImage", request=request)
+        request_data, db, PageSEO, query, page, search_column="page_name", folder="seoImage")
 
     return JSONResponse(content=response_data, status_code=200)
 
@@ -191,16 +179,4 @@ def page_seo_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_social_data = edit_data(db, PageSEO, edit_id)
-
-    if edit_social_data is None:
-        return JSONResponse(
-            content={"status": "error", "message": "Record not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display!",
-                 "data": edit_social_data.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, PageSEO, edit_id, folder="seoImage")

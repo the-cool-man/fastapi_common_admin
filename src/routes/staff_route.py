@@ -98,21 +98,11 @@ def staff_member_edit(edit_id: int, db: DBSession, valid_token=Depends(validate_
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_user = edit_data(db, Users, edit_id)
-    if edit_user is None:
-        return JSONResponse(
-            content={"status": "error", "message": "User not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display",
-                 "data": edit_user.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, Users, edit_id)
 
 
 # STAFF ROLE ROUTE -------------------------
+
 
 @router.post("/staff-role-save")
 def staff_role_save(
@@ -214,15 +204,4 @@ def staff_role_edit(edit_id: int, db: DBSession, valid_token=Depends(validate_to
     if (res := check_token_response(valid_token)):
         return res
 
-    edit_user = edit_data(db, Role, edit_id)
-    if edit_user is None:
-        return JSONResponse(
-            content={"status": "error", "message": "User not found!"},
-            status_code=200
-        )
-
-    return JSONResponse(
-        content={"status": "success", "message": "Data Display",
-                 "data": edit_user.as_dict()},
-        status_code=200
-    )
+    return edit_data(db, Role, edit_id)

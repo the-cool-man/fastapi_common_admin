@@ -1,16 +1,18 @@
 
 from ..utils import bcrypt_context
-from ..models import OrdinaryUserModel as OrdinaryUser, OrdinaryUserDetailModel as OrdinaryUserDetail
+from ..models import OrdinaryUserModel as OrdinaryUser, OrdinaryUserDetailModel as OrdinaryUserDetail, MediaGalleryModel as MediaGallery, CmsPageModel as CmsPage
 from sqlalchemy.orm import Session
 from fastapi.responses import JSONResponse
 import os
 import time
-from pathlib import Path
 import uuid
+from pathlib import Path
 from datetime import datetime
 
 UPLOAD_DIR = "uploads"
 USER_DIR = os.path.join(UPLOAD_DIR, "userImg")
+PHOTO_DIR = os.path.join(UPLOAD_DIR, "gallery")
+CMS_IMG_DIR = os.path.join(UPLOAD_DIR, "cmsImg")
 
 
 async def handle_file_upload(file, upload_dir, old_file=None):
@@ -126,5 +128,113 @@ async def handleUserContentSave(request_data, db):
         db.rollback()
         return JSONResponse(
             content={"status": "error", "message": str(err)},
+            status_code=200
+        )
+
+
+async def handleGallerySave(request_data, db):
+
+    try:
+        if request_data.id is None:
+            model_data = MediaGallery()
+            message = "inserted"
+        else:
+            model_data = db.query(MediaGallery).filter(
+                MediaGallery.id == request_data.id
+            ).first()
+
+            if not model_data:
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "Record not found!"},
+                    status_code=200
+                )
+
+            message = "updated"
+
+        model_data.status = request_data.status
+        if request_data.media_name:
+            model_data.media_name = await handle_file_upload(
+                request_data.media_name, PHOTO_DIR, model_data.media_name
+            )
+        db.add(model_data)
+        db.commit()
+        db.refresh(model_data)
+
+        return JSONResponse(
+            content={
+                "status": "success",
+                "message": f"Photo Gallery {message} successfully",
+                "user_id": model_data.id
+            },
+            status_code=200
+        )
+
+    except Exception as err:
+        db.rollback()
+        return JSONResponse(
+            content={"status": "error", "message": str(err)},
+            status_code=200
+        )
+
+
+async def handleCmsPageSave(request_data, db):
+    try:
+        if request_data.id is None:
+            if db.query(CmsPage).filter(CmsPage.page_title == request_data.page_title).first():
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "page_title has already been taken"},
+                    status_code=200
+                )
+            model_data = CmsPage()
+            message = "Inserted"
+
+        else:
+            model_data = db.query(CmsPage).filter(
+                CmsPage.id == request_data.id).first()
+            if not model_data:
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "Record Not Found For Update"},
+                    status_code=200
+                )
+
+            if (
+                model_data.page_title != request_data.page_title
+                and db.query(CmsPage).filter(CmsPage.page_title == request_data.page_title).first()
+            ):
+                return JSONResponse(
+                    content={"status": "error",
+                             "message": "page_title has already been taken"},
+                    status_code=200
+                )
+            message = "Updated"
+
+        if request_data.meta_image:
+            model_data.meta_image = await handle_file_upload(
+                request_data.meta_image, CMS_IMG_DIR, model_data.meta_image
+            )
+
+        model_data.status = request_data.status
+        model_data.page_title = request_data.page_title
+        model_data.page_content = request_data.page_content
+        model_data.meta_title = request_data.meta_title
+        model_data.meta_description = request_data.meta_description
+        model_data.display_footer = request_data.display_footer
+
+        db.add(model_data)
+        db.commit()
+
+        return JSONResponse(
+            content={"status": "success",
+                     "message": f"Cms Page {message} successfully"},
+            status_code=200
+        )
+
+    except Exception as err:
+        db.rollback()
+        return JSONResponse(
+            content={"status": "error", "message": f"ad{str(err)}"},
             status_code=200
         )

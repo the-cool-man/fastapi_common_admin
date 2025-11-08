@@ -9,7 +9,7 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
-from src.models.users_content_model import OrdinaryUserModel, OrdinaryUserDetailModel, MediaGalleryModel, CmsPageModel
+from src.models.users_content_model import OrdinaryUserModel, OrdinaryUserDetailModel, MediaGalleryModel, CmsPageModel, OrdinaryUserRatingModel
 
 
 # revision identifiers, used by Alembic.
@@ -26,6 +26,7 @@ def upgrade() -> None:
     OrdinaryUserDetailModel.__table__.create(bind, checkfirst=True)
     MediaGalleryModel.__table__.create(bind, checkfirst=True)
     CmsPageModel.__table__.create(bind, checkfirst=True)
+    OrdinaryUserRatingModel.__table__.create(bind, checkfirst=True)
 
     pass
 
@@ -37,4 +38,5 @@ def downgrade() -> None:
     OrdinaryUserDetailModel.__table__.drop(bind, checkfirst=True)
     MediaGalleryModel.__table__.drop(bind, checkfirst=True)
     CmsPageModel.__table__.drop(bind, checkfirst=True)
+    OrdinaryUserRatingModel.__table__.drop(bind, checkfirst=True)
     pass
