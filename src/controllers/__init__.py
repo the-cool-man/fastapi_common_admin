@@ -4,3 +4,4 @@ from .master_controller import handleBannerSave, handleCategorySave, handleCurre
 
 from .user_content_controller import handleUserContentSave, handleGallerySave, handleCmsPageSave
 from .templates_controller import handleEmailTemplate, handleSMSTemplate
+from .web_payment_controller import handleWebServiceSave

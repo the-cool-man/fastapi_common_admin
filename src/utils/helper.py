@@ -67,7 +67,8 @@ def sort_search_paginate_data(request_data, db, Model, query, page, search_colum
     sort_order = getattr(request_data, "sort_order", "ASC").upper()
     sort_column_name = getattr(request_data, "sort_column", "id")
     search_field_value = getattr(request_data, "search_field", None)
-
+   
+    base_url = None
     if folder:
         base_url = get_base_url(folder)
 
@@ -113,9 +114,10 @@ def sort_search_paginate_data(request_data, db, Model, query, page, search_colum
     return response_data
 
 
-def edit_data(db, Model, edit_id, folder = None):
+def edit_data(db, Model, edit_id, folder=None):
     edit_data = db.query(Model).filter(Model.id == edit_id).first()
-
+   
+    base_url = None
     if folder:
         base_url = get_base_url(folder)
 

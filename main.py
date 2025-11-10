@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
-from src import engine, user_route, staff_route, site_setting_route, models, master_route, users_content_route, template_route
+from src import engine, user_route, staff_route, site_setting_route, models, master_route, users_content_route, template_route, web_payment_route
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
@@ -122,6 +122,7 @@ app.include_router(site_setting_route.router, prefix='/api', tags=['api'])
 app.include_router(master_route.router, prefix='/api', tags=['api'])
 app.include_router(users_content_route.router, prefix='/api', tags=['api'])
 app.include_router(template_route.router, prefix='/api', tags=['api'])
+app.include_router(web_payment_route.router, prefix='/api', tags=['api'])
 
 
 @app.get("/")
