@@ -58,10 +58,11 @@ class UserPaymentModel(Base, BaseDic):
     payment_mode = Column(Integer)
     payment_note = Column(Text)
     transaction_id = Column(String(100))
-    coupan_code = Column(String(50))
+    coupon_code = Column(String(50))
     discount_percentage = Column(String(50))
     currency = Column(String(50))
     plan_amount = Column(String(50))
+    plan_type = Column(String(50))
     discount_amount = Column(String(50))
     total_amount = Column(String(50))
     status = Column(
