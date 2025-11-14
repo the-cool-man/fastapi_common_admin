@@ -1,6 +1,6 @@
-from pydantic import BaseModel, field_validator
+from pydantic import field_validator
 from fastapi import UploadFile
-from ..utils import MultiFormatRequest
+from ..utils import MultiFormatRequest, BaseManualSchema
 from typing import Optional
 import os
 
@@ -9,7 +9,7 @@ MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png"}
 
 
-class BannerSchema(BaseModel, MultiFormatRequest):
+class BannerSchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     status: str
     button_text: str
@@ -48,7 +48,7 @@ class BannerSchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class CategorySchema(BaseModel, MultiFormatRequest):
+class CategorySchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     status: str
     category_name: str
@@ -89,7 +89,7 @@ class CategorySchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class CurrencySchema(BaseModel, MultiFormatRequest):
+class CurrencySchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     status: str
     currency_name: str
@@ -103,7 +103,7 @@ class CurrencySchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class GstPercentageSchema(BaseModel, MultiFormatRequest):
+class GstPercentageSchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     status: str
     gst_percentage: str
@@ -115,7 +115,7 @@ class GstPercentageSchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class CountrySchema(BaseModel, MultiFormatRequest):
+class CountrySchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     status: str
     country_name: str
@@ -129,7 +129,7 @@ class CountrySchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class StateSchema(BaseModel, MultiFormatRequest):
+class StateSchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     status: str
     country_id: str
@@ -142,7 +142,7 @@ class StateSchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class CitySchema(BaseModel, MultiFormatRequest):
+class CitySchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     status: str
     city_name: str

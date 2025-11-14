@@ -173,7 +173,7 @@ async def handleGallerySave(request_data, db):
     except Exception as err:
         db.rollback()
         return JSONResponse(
-            content={"status": "error", "message": str(err)},
+            content={"status": "error", "message": f"sadf{str(err)}"},
             status_code=200
         )
 

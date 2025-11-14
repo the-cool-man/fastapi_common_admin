@@ -64,7 +64,7 @@ async def gallery_save_data(
     return await handleGallerySave(request_data, db)
 
 
-@router.post("/photo-gallery-data-list")
+@router.post("/gallery-photo-list")
 def gallery_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
@@ -84,7 +84,7 @@ def gallery_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSch
     return JSONResponse(content=response_data, status_code=200)
 
 
-@router.get("/photo-gallery-data-list/edit/{edit_id}")
+@router.get("/gallery-photo-list/edit/{edit_id}")
 def gallery_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):

@@ -74,7 +74,9 @@ class SiteConfig(Base):
             else:
                 result[c.name] = value
 
-    # Add full URLs if base_url is provided
+        print("baseUrl", f"{self}")
+        print("baseUrl", f"{base_url}/logos/{self.logo}")
+
         if base_url:
             result["logo_full_url"] = f"{base_url}/logos/{self.logo}" if self.logo else None
             result["favicon_full_url"] = f"{base_url}/favicons/{self.favicon}" if self.favicon else None
@@ -97,7 +99,6 @@ class SocialMedia(Base, BaseDic):
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
     deleted_at = Column(TIMESTAMP(timezone=True))
-    
 
 
 class PublicPageSEO(Base, BaseDic):

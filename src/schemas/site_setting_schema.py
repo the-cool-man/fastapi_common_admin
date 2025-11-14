@@ -36,9 +36,9 @@ class LogoFavSchema(BaseModel, MultiFormatRequest):
     @model_validator(mode="after")
     def check_required_files(cls, values):
         if values.flag == "logo_fav":
-            if not values.logo or not values.favicon:
+            if not values.logo and not values.favicon:
                 raise ValueError(
-                    "logo and favicon are required")
+                    "logo or favicon are required")
         return values
 
 

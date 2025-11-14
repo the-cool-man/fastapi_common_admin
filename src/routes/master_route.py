@@ -268,9 +268,18 @@ def state_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_to
     return edit_data(db, State, edit_id)
 
 
+# @router.post("/statelist/{edit_id}")
+# def state_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):
+
+#     if (res := check_token_response(valid_token)):
+#         return res
+
+#     return edit_data(db, Country, edit_id)
+
+
 # CITY ROUTE ----------------------------
 
-@router.post("/city-list")
+@router.post("/city-list-data")
 def city_get_data(request_data: Annotated[ListDataSchema, Depends(ListDataSchema.from_request)], db: DBSession, page: int = Query(1, g=1), valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):
@@ -302,7 +311,7 @@ async def city_save_data(
     return await handleCitySave(request_data, db)
 
 
-@router.get("/city-list/edit/{edit_id}")
+@router.get("/city-list-data/edit/{edit_id}")
 def city_edit_data(edit_id: int, db: DBSession, valid_token=Depends(validate_token)):
 
     if (res := check_token_response(valid_token)):

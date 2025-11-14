@@ -1,14 +1,15 @@
 from pydantic import BaseModel, field_validator
 from fastapi import UploadFile
 from typing import Optional
-from ..utils import MultiFormatRequest
+from ..utils import MultiFormatRequest, BaseManualSchema
 import os
+
 
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png"}
 
 
-class OrdinaryUserSchema(BaseModel, MultiFormatRequest):
+class OrdinaryUserSchema(BaseManualSchema, MultiFormatRequest):
     id: Optional[int] = None
     name: str
     email: str
@@ -72,11 +73,20 @@ class OrdinaryUserSchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class MediaGallerySchema(BaseModel, MultiFormatRequest):
+class MediaGallerySchema(BaseManualSchema, MultiFormatRequest):
 
     id: Optional[int] = None
     status: str
     media_name: UploadFile
+
+    # @field_validator("id", mode="before")
+    # def validate_id(cls, v):
+    #     if v in ("", " ", None):
+    #         return None
+    #     try:
+    #         return int(v)
+    #     except:
+    #         raise ValueError("id must be an integer or null")
 
     @field_validator("media_name")
     def validate_images(cls, file: UploadFile):
@@ -87,11 +97,13 @@ class MediaGallerySchema(BaseModel, MultiFormatRequest):
         ext = os.path.splitext(filename)[1]
         if ext not in ALLOWED_EXTENSIONS:
             raise ValueError(
-                "media_name must be .jpg, .jpeg, or .png files")
+                "media_name must be .jpg, .jpeg, or .png files"
+            )
 
         file.file.seek(0, 2)
         size = file.file.tell()
         file.file.seek(0)
+
         if size > MAX_FILE_SIZE:
             raise ValueError("media_name file size must be 5MB or less")
         return file
@@ -103,7 +115,7 @@ class MediaGallerySchema(BaseModel, MultiFormatRequest):
         return v
 
 
-class CmsPageSchema(BaseModel, MultiFormatRequest):
+class CmsPageSchema(BaseManualSchema, MultiFormatRequest):
 
     id: Optional[int] = None
     status: str

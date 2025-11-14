@@ -61,12 +61,9 @@ async def basic_site_setting(
 
 
 @router.get("/all_site_setting_data")
-def get_all_site_setting_data(request: Request, db: DBSession, valid_token=Depends(validate_token)):
+def get_all_site_setting_data(request: Request, db: DBSession):
 
-    if isinstance(valid_token, JSONResponse):
-        return valid_token
-
-    base_url = f"{request.url.scheme}://{request.url.hostname}:{request.url.port}/api/uploads"
+    base_url = f"{request.base_url}api/uploads"
 
     try:
         # synchronous query

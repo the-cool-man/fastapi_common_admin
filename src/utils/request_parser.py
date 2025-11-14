@@ -8,9 +8,25 @@ from decimal import Decimal
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
 import contextvars
 from fastapi import Request
+from pydantic import BaseModel, field_validator
+from typing import Optional
 
 
 T = TypeVar("T")
+
+
+class BaseManualSchema(BaseModel):
+
+    id: Optional[int] = None
+
+    @field_validator("id", mode="before")
+    def validate_id(cls, v):
+        if v in ("", " ", None):
+            return None
+        try:
+            return int(v)
+        except:
+            raise ValueError("id must be an integer or null")
 
 
 class MultiFormatRequest:
