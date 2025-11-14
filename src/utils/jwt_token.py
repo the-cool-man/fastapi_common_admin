@@ -68,7 +68,7 @@ async def validate_token(token: str = Depends(oauth2_bearer)):
             return JSONResponse(
                 content={"status": "error",
                          "message": "Token Is Not Provided!"},
-                status_code=401
+                status_code=200
             )
 
         payload = jwt.decode(token, SECRET_KEY, algorithms=[
@@ -87,13 +87,13 @@ async def validate_token(token: str = Depends(oauth2_bearer)):
             return JSONResponse(
                 content={"status": "error",
                          "message": "Token Is Invalid!"},
-                status_code=401
+                status_code=200
             )
 
         if email is None or user_id is None:
             return JSONResponse(
                 content={"status": "error", "message": "Token Is Invalid!"},
-                status_code=401
+                status_code=200
             )
 
         return {"email": email, "user_id": user_id}
@@ -101,12 +101,12 @@ async def validate_token(token: str = Depends(oauth2_bearer)):
     except ExpiredSignatureError:
         return JSONResponse(
             content={"status": "error", "message": "Token Expired!"},
-            status_code=401
+            status_code=200
         )
 
     except JWTError as error:
         return JSONResponse(
             content={"status": "error",
                      "message": str(error) or "Token Is Invalid"},
-            status_code=401
+            status_code=200
         )
