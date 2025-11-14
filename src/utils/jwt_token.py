@@ -1,5 +1,5 @@
 from datetime import timedelta, datetime
-from jose import jwt, JWTError
+from jose import jwt, JWTError, ExpiredSignatureError
 from typing import Annotated
 from fastapi import Depends, HTTPException, Request
 from fastapi.security import OAuth2PasswordBearer
@@ -36,8 +36,8 @@ def get_ip_hash(ip: str) -> str:
 # ---------- CREATE AND GET JWToken ---------------#
 
 def get_jwt_token(request: Request, email: str, user_id: int, role: str):
-    now = datetime.now()
-    expires = now + timedelta(minutes=5)
+    now = datetime.utcnow()
+    expires = now + timedelta(seconds=30)
 
     iss = str(request.base_url) + "api/login"
 
@@ -45,9 +45,10 @@ def get_jwt_token(request: Request, email: str, user_id: int, role: str):
         "iss": iss,
         "iat": now,
         "nbf": now,
-        "exp": expires,
+        # "exp": expires,
+        "env": os.getenv("APP_ENV"),
         "jti": str(uuid.uuid4())[:16],
-        "sub": user_id,
+        "sub": str(user_id),
 
         "prv": str(uuid.uuid4()),
         "user_id": user_id,
@@ -71,10 +72,23 @@ async def validate_token(token: str = Depends(oauth2_bearer)):
             )
 
         payload = jwt.decode(token, SECRET_KEY, algorithms=[
-                             ALGORITHM], options={"verify_nbf": False, "verify_exp": False, "verify_iat": False, "verify_jti": False, "verify_sub": False, })
+                             ALGORITHM],
+                             options={
+            "verify_nbf": False,
 
+        })
+
+        current_env = os.getenv("APP_ENV")
+        token_env = payload.get("env")
         email = payload.get('email')
         user_id = payload.get('user_id')
+
+        if token_env != current_env:
+            return JSONResponse(
+                content={"status": "error",
+                         "message": "Token Is Invalid!"},
+                status_code=401
+            )
 
         if email is None or user_id is None:
             return JSONResponse(
@@ -84,9 +98,15 @@ async def validate_token(token: str = Depends(oauth2_bearer)):
 
         return {"email": email, "user_id": user_id}
 
+    except ExpiredSignatureError:
+        return JSONResponse(
+            content={"status": "error", "message": "Token Expired!"},
+            status_code=401
+        )
+
     except JWTError as error:
         return JSONResponse(
             content={"status": "error",
-                     "message": "Token Is Invalid"},
+                     "message": str(error) or "Token Is Invalid"},
             status_code=401
         )
