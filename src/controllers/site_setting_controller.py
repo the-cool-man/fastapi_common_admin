@@ -21,13 +21,16 @@ async def handleLogoFavicon(request_data, db):
         if getattr(request_data, "id", None):
             site_config = db.query(SiteConfig).filter(
                 SiteConfig.id == request_data.id).first()
-            if not site_config:
-                return {"status": "error", "message": "Record Not Found"}
-            message = "updated"
-        else:
+            print("request_data", request_data)
+            # if not site_config:
+            #     return {"status": "error", "message": "Record Not Found"}
+            # message = "updated"
+        if not site_config:
             site_config = SiteConfig()
             db.add(site_config)
             message = "inserted"
+        else:
+            message = "updated"
 
         if request_data.logo:
             if site_config.logo:

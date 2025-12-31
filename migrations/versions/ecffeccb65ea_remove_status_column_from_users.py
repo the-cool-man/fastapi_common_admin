@@ -20,8 +20,8 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     """Upgrade schema."""
-    op.drop_column('user_details', 'status')
-
+    op.drop_column('user_details', 'status', if_exists=True)
+    
     pass
 
 

@@ -7,7 +7,7 @@ load_dotenv()
 
 # Replace with your actual Postgres credentials
 # DATABASE_URL = "postgresql+psycopg2://postgres:root@localhost:5432/common_admin"
-# DATABASE_URL = "postgresql://postgres:root@localhost:5432/common_admin"
+# DATABASE_URL = "postgresql://postgres:admin@localhost:5432/common_admin"
 
 DATABASE_URL = os.getenv("DB_CONNECTION_URL")
 
