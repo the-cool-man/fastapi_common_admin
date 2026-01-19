@@ -1,4 +1,4 @@
-from .site_setting_controller import handleLogoFavicon, handleCommonSetting, handleEmailSetting, handleSocialMedia, handlePublicPageSEO
+from .site_setting_controller import handleLogoFavicon, handleCommonSetting, handleEmailSetting, handleSocialMedia, handlePublicPageSEO, handleDashboardData
 
 from .master_controller import handleBannerSave, handleCategorySave, handleCurrencySave, handleGSTPercentageSave, handleCountrySave, handleStateSave, handleCitySave
 

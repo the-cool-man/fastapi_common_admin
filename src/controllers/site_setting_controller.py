@@ -1,5 +1,6 @@
 from fastapi.responses import JSONResponse
-from ..models import SiteConfig, SocialMedia as Social, PublicPageSEO as PageSEO
+from ..models import SiteConfig, SocialMedia as Social, PublicPageSEO as PageSEO, CmsPageModel as CmsPage, EmailTemplateModel as EmailTemplate, SMSTemplateModel as SmsTemplates
+
 import os
 import time
 from pathlib import Path
@@ -10,6 +11,30 @@ LOGO_DIR = os.path.join(UPLOAD_DIR, "logos")
 FAVICON_DIR = os.path.join(UPLOAD_DIR, "favicons")
 SOCIAL_LOGO_DIR = os.path.join(UPLOAD_DIR, "social")
 PAGE_SEO_DIR = os.path.join(UPLOAD_DIR, "seoImage")
+
+
+async def handleDashboardData(db):
+    try:
+        dashboard_data = {
+            "cms_pages_count": db.query(CmsPage).count(),
+            "social_networking_links_count": db.query(Social).count(),
+            "public_pages_seo_count": db.query(PageSEO).count(),
+            "email_templates_count": db.query(EmailTemplate).count(),
+            "sms_templates_count": db.query(SmsTemplates).count(),
+        }
+
+        return {
+            "status": "success",
+            "message": "All Dashboard Data",
+            "data": dashboard_data
+        }
+
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e),
+            "data": {}
+        }
 
 
 async def handleLogoFavicon(request_data, db):

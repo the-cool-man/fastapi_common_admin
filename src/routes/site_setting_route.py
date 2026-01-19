@@ -5,7 +5,7 @@ from ..models import SiteConfig, SocialMedia as Social, PublicPageSEO as PageSEO
 from ..schemas import LogoFavSchema, CommonSetting, EmailUpdate, ListDataSchema, SocialMediaSchema, PublicPageSEOSchema
 from ..db_connection import DBSession
 from ..utils import validate_token, status_update, check_token_response, sort_search_paginate_data, edit_data
-from ..controllers import handleLogoFavicon, handleCommonSetting, handleEmailSetting, handleSocialMedia, handlePublicPageSEO
+from ..controllers import handleLogoFavicon, handleCommonSetting, handleEmailSetting, handleSocialMedia, handlePublicPageSEO, handleDashboardData
 import os
 from pathlib import Path
 import json
@@ -21,6 +21,26 @@ def getTimeZoneData():
     with open(TIME_ZONE, "r", encoding="utf-8") as file:
         data = json.load(file)  # <- remove 'await'
     return data
+
+
+@router.get("/dashboard-data")
+async def get_dashboard_data(request: Request, db: DBSession, valid_token=Depends(validate_token)):
+
+    if isinstance(valid_token, JSONResponse):
+        return valid_token
+
+    try:
+        result = await handleDashboardData(db)
+        return JSONResponse(
+            content=result,
+            status_code=200
+        )
+    except Exception as error:
+        return JSONResponse(
+            content={"status": "error",
+                     "message": f"{str(error)}"},
+            status_code=500
+        )
 
 
 @router.post("/basic-site-setting")
