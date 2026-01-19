@@ -92,7 +92,6 @@ def sort_search_paginate_data(request_data, db, Model, query, page, search_colum
             if value and search_value in str(value).lower():
                 filtered_data.append(row)
         all_data = filtered_data
-
     all_data_list = [row.as_dict(base_url=base_url)
                      for row in all_data] if all_data else []
 

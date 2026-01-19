@@ -48,7 +48,7 @@ class AdminUser(Base):
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
 
-    def as_dict(self, exclude_fields=None):
+    def as_dict(self, exclude_fields=None, base_url=None):
         if exclude_fields is None:
             exclude_fields = ['password', 'c_password']
 

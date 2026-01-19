@@ -51,7 +51,7 @@ class AdminRole(Base):
     updated_at = Column(TIMESTAMP(timezone=True))
     deleted_at = Column(TIMESTAMP(timezone=True))
 
-    def as_dict(self):
+    def as_dict(self, base_url=None):
 
         result = {}
         for c in self.__table__.columns:
