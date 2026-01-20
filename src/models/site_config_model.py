@@ -20,7 +20,7 @@ class SiteConfig(Base):
         Enum(StatusEnum, values_callable=lambda enum_cls: [
              e.value for e in enum_cls]),
         nullable=False,
-        default=StatusEnum.INACTIVE
+        default=StatusEnum.ACTIVE
     )
 
     web_name = Column(String(200))

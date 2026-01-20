@@ -43,6 +43,7 @@ async def handleLogoFavicon(request_data, db):
     logo_path = None
     favicon_path = None
     try:
+        site_config = None
         if getattr(request_data, "id", None):
             site_config = db.query(SiteConfig).filter(
                 SiteConfig.id == request_data.id).first()

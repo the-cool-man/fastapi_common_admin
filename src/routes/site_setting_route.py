@@ -88,10 +88,9 @@ def get_all_site_setting_data(request: Request, db: DBSession):
     try:
         # synchronous query
         result = db.query(SiteConfig).filter(SiteConfig.status == "A").first()
-
         if not result:
             return JSONResponse(
-                content={"status": "error",
+                content={"status": "success",
                          "message": "No site config found", "data": []},
                 status_code=200
             )
