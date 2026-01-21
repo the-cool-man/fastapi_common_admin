@@ -1,7 +1,7 @@
 from fastapi import UploadFile
-from pydantic import BaseModel, field_validator, model_validator, ValidationError
+from pydantic import BaseModel, field_validator, model_validator, ValidationError, model_validator
 from ..utils import MultiFormatRequest
-from typing import Optional
+from typing import Optional, Union
 import os
 
 
@@ -76,7 +76,7 @@ class CommonSetting(BaseModel, MultiFormatRequest):
 
 
 class EmailUpdate(BaseModel, MultiFormatRequest):
-    id: Optional[int] = None
+    id: Optional[Union[int, str]] = None
     flag: Optional[str] = None
     contact_email: Optional[str] = None
     from_email: Optional[str] = None

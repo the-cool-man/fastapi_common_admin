@@ -50,7 +50,7 @@ async def basic_site_setting(
     email_update: Annotated[EmailUpdate, Depends(EmailUpdate.from_request)],
     db: DBSession,
     valid_token=Depends(validate_token)
-):
+):  
     if isinstance(valid_token, JSONResponse):
         return valid_token
 

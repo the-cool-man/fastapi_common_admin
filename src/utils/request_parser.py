@@ -34,12 +34,14 @@ class MultiFormatRequest:
     async def from_request(cls: Type[T], request: Request) -> T:
         content_type = request.headers.get("content-type", "")
         data = {}
-
         if not content_type:
             return cls(**data)
 
         if "application/json" in content_type:
             data = await request.json()
+
+            if 'id' in data and isinstance(data['id'], int):
+                data['id'] = str(data['id'])
 
         elif "application/x-www-form-urlencoded" in content_type or "multipart/form-data" in content_type:
             form = await request.form()
